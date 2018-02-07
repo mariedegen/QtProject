@@ -25,10 +25,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp
+        mainwindow.cpp \
+    identificationdialog.cpp
 
 HEADERS += \
-        mainwindow.h
+        mainwindow.h \
+    identificationdialog.h
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    identificationdialog.ui
