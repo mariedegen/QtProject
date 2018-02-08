@@ -23,6 +23,10 @@
   <property name="locale">
    <locale language="English" country="UnitedStates"/>
   </property>
+  <property name="IconFav" stdset="0">
+   <iconset resource="tpqt.qrc">
+    <normaloff>:/icon/pig.png</normaloff>:/icon/pig.png</iconset>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
     <layout class="QGridLayout" name="gridLayout">
