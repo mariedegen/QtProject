@@ -6,9 +6,18 @@ IdentificationDialog::IdentificationDialog(QWidget *parent) :
     ui(new Ui::IdentificationDialog)
 {
     ui->setupUi(this);
+    //this->setWindowTitle("Identification");
+    this->setWindowIcon(QIcon(":/pig.png"));
+    this->setStyleSheet("background-color: white;");
+
+    //Quit the window when the cancel_btn is clicked on
+    connect(ui->cancel_btn,SIGNAL(clicked()),this, SLOT(close()));
+
 }
 
 IdentificationDialog::~IdentificationDialog()
 {
     delete ui;
 }
+
+

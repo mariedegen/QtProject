@@ -17,6 +17,7 @@ public:
 
 private:
     Ui::IdentificationDialog *ui;
+
 };
 
 #endif // IDENTIFICATIONDIALOG_H

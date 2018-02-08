@@ -35,3 +35,6 @@ HEADERS += \
 FORMS += \
         mainwindow.ui \
     identificationdialog.ui
+
+RESOURCES += \
+    tpqt.qrc
