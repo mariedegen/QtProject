@@ -1,6 +1,6 @@
 <RCC>
-    <qresource>
+    <qresource prefix="/">
         <file>icon/pig.png</file>
+        <file>icon/nyan.gif</file>
     </qresource>
 </RCC>
-
