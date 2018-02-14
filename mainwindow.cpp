@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "addclientwindow.h"
+#include "addemployeewindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -8,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     this->centralWidget()->setStyleSheet("background-image: url(\":icon/nyan.gif\"); background-position: center;");
+    this->setWindowIcon(QIcon("icon/pig.png"));
 }
 
 MainWindow::~MainWindow()
@@ -20,4 +22,10 @@ void MainWindow::on_actionClient_triggered()
     addClientWindow aCw;
     aCw.exec();
 
+}
+
+void MainWindow::on_actionEmployees_triggered()
+{
+    addEmployeeWindow aEw;
+    aEw.exec();
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>addClientWindow</class>
- <widget class="QDialog" name="addClientWindow">
+ <class>aboutWindow</class>
+ <widget class="QDialog" name="aboutWindow">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,18 +11,15 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Add Client</string>
+   <string>Dialog</string>
   </property>
-  <property name="locale">
-   <locale language="English" country="UnitedStates"/>
-  </property>
-  <widget class="QDialogButtonBox" name="buttonBox">
+  <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>100</x>
-     <y>170</y>
-     <width>193</width>
-     <height>28</height>
+     <x>70</x>
+     <y>190</y>
+     <width>251</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="mouseTracking">
@@ -31,8 +28,8 @@
    <property name="locale">
     <locale language="English" country="UnitedStates"/>
    </property>
-   <property name="standardButtons">
-    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+   <property name="text">
+    <string>Authors : Stéphane Deluce &amp; Marie Degen</string>
    </property>
   </widget>
  </widget>

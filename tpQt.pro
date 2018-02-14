@@ -27,17 +27,23 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     identificationdialog.cpp \
-    addclientwindow.cpp
+    addclientwindow.cpp \
+    addemployeewindow.cpp \
+    aboutwindow.cpp
 
 HEADERS += \
         mainwindow.h \
     identificationdialog.h \
-    addclientwindow.h
+    addclientwindow.h \
+    addemployeewindow.h \
+    aboutwindow.h
 
 FORMS += \
         mainwindow.ui \
     identificationdialog.ui \
-    addclientwindow.ui
+    addclientwindow.ui \
+    addemployeewindow.ui \
+    aboutwindow.ui
 
 RESOURCES += \
     tpqt.qrc

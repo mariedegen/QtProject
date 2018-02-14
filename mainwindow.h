@@ -18,6 +18,8 @@ public:
 private slots:
     void on_actionClient_triggered();
 
+    void on_actionEmployees_triggered();
+
 private:
     Ui::MainWindow *ui;
 };
