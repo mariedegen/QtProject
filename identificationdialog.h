@@ -14,6 +14,7 @@ class IdentificationDialog : public QDialog
 public:
     explicit IdentificationDialog(QWidget *parent = 0);
     ~IdentificationDialog();
+    void check_authentification();
 
 private:
     Ui::IdentificationDialog *ui;
