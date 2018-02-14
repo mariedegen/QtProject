@@ -6,6 +6,7 @@ addClientWindow::addClientWindow(QWidget *parent) :
     ui(new Ui::addClientWindow)
 {
     ui->setupUi(this);
+    this->setWindowIcon(QIcon("icon/pig.png"));
 }
 
 addClientWindow::~addClientWindow()
