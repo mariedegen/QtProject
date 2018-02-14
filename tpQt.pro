@@ -26,15 +26,18 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    identificationdialog.cpp
+    identificationdialog.cpp \
+    addclientwindow.cpp
 
 HEADERS += \
         mainwindow.h \
-    identificationdialog.h
+    identificationdialog.h \
+    addclientwindow.h
 
 FORMS += \
         mainwindow.ui \
-    identificationdialog.ui
+    identificationdialog.ui \
+    addclientwindow.ui
 
 RESOURCES += \
     tpqt.qrc

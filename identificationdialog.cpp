@@ -1,7 +1,10 @@
 #include "identificationdialog.h"
 #include "ui_identificationdialog.h"
 #include "mainwindow.h"
-#include "QMessageBox"
+#include <QMessageBox>
+#include <iostream>
+
+using namespace std;
 
 IdentificationDialog::IdentificationDialog(QWidget *parent) :
     QDialog(parent),
@@ -9,9 +12,7 @@ IdentificationDialog::IdentificationDialog(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowIcon(QIcon("icon/pig.png"));
-
-    //Quit the window when the cancel_btn is clicked on
-    connect(ui->cancel_btn,SIGNAL(clicked()),this, SLOT(close()));
+    this->setStyleSheet("background-color: #EA80FC");
     connect(ui->connection_btn,SIGNAL(clicked()),this, SLOT(check_authentification()));
 }
 
@@ -23,11 +24,14 @@ IdentificationDialog::~IdentificationDialog()
 
 void IdentificationDialog::check_authentification()
 {
-    if(ui->login_input->text().compare("marie") && ui->password_input->text().compare("stephane")){
-        MainWindow *window = new MainWindow();
-        window->show();
-    } else if(!ui->login_input->text().compare("marie") || !ui->password_input->text().compare("stephane")){
+    if(!ui->login_input->text().compare("marie") && !ui->password_input->text().compare("stephane")){
+        accept();
+    } else {
         QMessageBox::warning(this, "Erreur", "The data entered are wrong.");
     }
 }
 
+void IdentificationDialog::on_cancel_btn_clicked()
+{
+    close();
+}
