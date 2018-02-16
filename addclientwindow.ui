@@ -24,24 +24,24 @@
      </property>
      <layout class="QFormLayout" name="formLayout_4">
       <item row="0" column="0">
-       <widget class="QLabel" name="label_7">
+       <widget class="QLabel" name="phone_lbl">
         <property name="text">
          <string>Phone</string>
         </property>
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="lineEdit_6"/>
+       <widget class="QLineEdit" name="phone_input"/>
       </item>
       <item row="2" column="0">
-       <widget class="QLabel" name="label_8">
+       <widget class="QLabel" name="comment_lbl">
         <property name="text">
          <string>Comments</string>
         </property>
        </widget>
       </item>
       <item row="3" column="0" colspan="2">
-       <widget class="QTextEdit" name="textEdit"/>
+       <widget class="QTextEdit" name="comment_text"/>
       </item>
       <item row="1" column="0" colspan="2">
        <spacer name="horizontalSpacer">
@@ -66,24 +66,24 @@
      </property>
      <layout class="QFormLayout" name="formLayout">
       <item row="0" column="0">
-       <widget class="QLabel" name="firstnameLbl">
+       <widget class="QLabel" name="firstname_lbl">
         <property name="text">
          <string>Firstname</string>
         </property>
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="firstname"/>
+       <widget class="QLineEdit" name="firstname_input"/>
       </item>
       <item row="1" column="0">
-       <widget class="QLabel" name="lastnameLbl">
+       <widget class="QLabel" name="lastname_lbl">
         <property name="text">
          <string>Lastname</string>
         </property>
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="lastname"/>
+       <widget class="QLineEdit" name="lastname_input"/>
       </item>
      </layout>
     </widget>
@@ -95,34 +95,34 @@
      </property>
      <layout class="QFormLayout" name="formLayout_3">
       <item row="0" column="0">
-       <widget class="QLabel" name="label_4">
+       <widget class="QLabel" name="street_lbl">
         <property name="text">
          <string>Street</string>
         </property>
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="lineEdit_3"/>
+       <widget class="QLineEdit" name="street_input"/>
       </item>
       <item row="1" column="0">
-       <widget class="QLabel" name="label_5">
+       <widget class="QLabel" name="city_lbl">
         <property name="text">
          <string>City</string>
         </property>
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="lineEdit_4"/>
+       <widget class="QLineEdit" name="city_input"/>
       </item>
       <item row="2" column="0">
-       <widget class="QLabel" name="label_6">
+       <widget class="QLabel" name="zipcode_lbl">
         <property name="text">
          <string>Zip code</string>
         </property>
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QLineEdit" name="lineEdit_5"/>
+       <widget class="QLineEdit" name="zipcode_input"/>
       </item>
      </layout>
     </widget>
@@ -141,7 +141,7 @@
      </property>
      <layout class="QFormLayout" name="formLayout_2">
       <item row="0" column="0">
-       <widget class="QLabel" name="label_2">
+       <widget class="QLabel" name="date_lbl">
         <property name="text">
          <string>Date</string>
         </property>
@@ -151,24 +151,24 @@
        <widget class="QDateEdit" name="dateEdit"/>
       </item>
       <item row="1" column="0">
-       <widget class="QLabel" name="label_9">
+       <widget class="QLabel" name="duration_lbl">
         <property name="text">
          <string>Duration</string>
         </property>
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QSpinBox" name="spinBox"/>
+       <widget class="QSpinBox" name="duration_spinbox"/>
       </item>
       <item row="2" column="0">
-       <widget class="QLabel" name="label_10">
+       <widget class="QLabel" name="priority_lbl">
         <property name="text">
          <string>Priority</string>
         </property>
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QSpinBox" name="spinBox_2">
+       <widget class="QSpinBox" name="priority_spinbox">
         <property name="minimum">
          <number>1</number>
         </property>
