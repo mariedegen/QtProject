@@ -5,11 +5,11 @@
 #include <QDebug>
 #include <QFile>
 
-initiBDD::initiBDD()
+initBDD::initiBDD()
 {
 }
 
-bool C_INIT_BD::Creation_BD()
+bool initBDD::Creation_BD()
 {
     bool b_test;
     QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");

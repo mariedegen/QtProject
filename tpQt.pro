@@ -27,26 +27,26 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    identificationdialog.cpp \
-    addclientwindow.cpp \
-    addemployeewindow.cpp \
-    aboutwindow.cpp \
-    initbdd.cpp
+        identificationdialog.cpp \
+        addclientwindow.cpp \
+        addemployeewindow.cpp \
+        aboutwindow.cpp \
+        initbdd.cpp
 
 HEADERS += \
         mainwindow.h \
-    identificationdialog.h \
-    addclientwindow.h \
-    addemployeewindow.h \
-    aboutwindow.h \
-    initbdd.h
+        identificationdialog.h \
+        addclientwindow.h \
+        addemployeewindow.h \
+        aboutwindow.h \
+        initbdd.h
 
 FORMS += \
         mainwindow.ui \
-    identificationdialog.ui \
-    addclientwindow.ui \
-    addemployeewindow.ui \
-    aboutwindow.ui
+        identificationdialog.ui \
+        addclientwindow.ui \
+        addemployeewindow.ui \
+        aboutwindow.ui
 
 RESOURCES += \
     tpqt.qrc
