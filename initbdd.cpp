@@ -5,7 +5,7 @@
 #include <QDebug>
 #include <QFile>
 
-initBDD::initiBDD()
+initBDD::initBDD()
 {
 }
 
