@@ -11,7 +11,7 @@ IdentificationDialog::IdentificationDialog(QWidget *parent) :
     ui(new Ui::IdentificationDialog)
 {
     ui->setupUi(this);
-    this->setWindowIcon(QIcon("icon/pig.png"));
+    this->setWindowIcon(QIcon("icon/unicorn.png"));
     //this->setStyleSheet("background-color: #EA80FC");
     connect(ui->connection_btn,SIGNAL(clicked()),this, SLOT(check_authentification()));
 }

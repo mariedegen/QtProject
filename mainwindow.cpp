@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     this->centralWidget()->setStyleSheet("background: #333;");
-    this->setWindowIcon(QIcon("icon/unicorn.ico"));
+    this->setWindowIcon(QIcon("icon/unicorn.png"));
 }
 
 MainWindow::~MainWindow()

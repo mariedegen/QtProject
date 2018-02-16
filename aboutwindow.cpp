@@ -6,6 +6,7 @@ aboutWindow::aboutWindow(QWidget *parent) :
     ui(new Ui::aboutWindow)
 {
     ui->setupUi(this);
+    this->setWindowIcon(QIcon("icon/unicorn.png"));
 }
 
 aboutWindow::~aboutWindow()

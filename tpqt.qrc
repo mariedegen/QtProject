@@ -6,5 +6,6 @@
         <file>icon/user.png</file>
         <file>icon/client.png</file>
         <file>icon/exit.png</file>
+        <file>icon/unicorn.png</file>
     </qresource>
 </RCC>
