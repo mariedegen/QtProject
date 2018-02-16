@@ -47,3 +47,6 @@ FORMS += \
 
 RESOURCES += \
     tpqt.qrc
+
+DISTFILES += \
+    icon/exit.png

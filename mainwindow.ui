@@ -6,12 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>568</width>
-    <height>347</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="tpqt.qrc">
+    <normaloff>:/icon/unicorn.ico</normaloff>:/icon/unicorn.ico</iconset>
   </property>
   <widget class="QWidget" name="centralWidget"/>
   <widget class="QMenuBar" name="menuBar">
@@ -19,7 +23,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>568</width>
+     <width>800</width>
      <height>22</height>
     </rect>
    </property>
@@ -43,6 +47,12 @@
     <property name="title">
      <string>About</string>
     </property>
+    <property name="separatorsCollapsible">
+     <bool>false</bool>
+    </property>
+    <property name="toolTipsVisible">
+     <bool>false</bool>
+    </property>
    </widget>
    <addaction name="menuFichi"/>
    <addaction name="menu"/>
@@ -65,6 +75,10 @@
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionExit">
+   <property name="icon">
+    <iconset resource="tpqt.qrc">
+     <normaloff>:/icon/exit.png</normaloff>:/icon/exit.png</iconset>
+   </property>
    <property name="text">
     <string>Exit</string>
    </property>

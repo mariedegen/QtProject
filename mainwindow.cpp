@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //this->centralWidget()->setStyleSheet("background-image: url(\":icon/nyan.gif\"); background-position: center;");
+    this->centralWidget()->setStyleSheet("background: #333;");
     this->setWindowIcon(QIcon("icon/unicorn.ico"));
 }
 
