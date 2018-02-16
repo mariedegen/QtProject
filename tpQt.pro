@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT       += sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -29,14 +30,16 @@ SOURCES += \
     identificationdialog.cpp \
     addclientwindow.cpp \
     addemployeewindow.cpp \
-    aboutwindow.cpp
+    aboutwindow.cpp \
+    initbdd.cpp
 
 HEADERS += \
         mainwindow.h \
     identificationdialog.h \
     addclientwindow.h \
     addemployeewindow.h \
-    aboutwindow.h
+    aboutwindow.h \
+    initbdd.h
 
 FORMS += \
         mainwindow.ui \
