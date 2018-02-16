@@ -7,5 +7,6 @@
         <file>icon/client.png</file>
         <file>icon/exit.png</file>
         <file>icon/unicorn.png</file>
+        <file>icon/PolytechTours.png</file>
     </qresource>
 </RCC>
