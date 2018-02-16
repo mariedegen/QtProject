@@ -2,5 +2,8 @@
     <qresource prefix="/">
         <file>icon/pig.png</file>
         <file>icon/nyan.gif</file>
+        <file>icon/unicorn.ico</file>
+        <file>icon/user.png</file>
+        <file>icon/client.png</file>
     </qresource>
 </RCC>

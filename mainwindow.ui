@@ -20,7 +20,7 @@
      <x>0</x>
      <y>0</y>
      <width>400</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichi">
@@ -70,17 +70,27 @@
    </property>
   </action>
   <action name="actionClient">
+   <property name="icon">
+    <iconset resource="tpqt.qrc">
+     <normaloff>:/icon/client.png</normaloff>:/icon/client.png</iconset>
+   </property>
    <property name="text">
     <string>Client</string>
    </property>
   </action>
   <action name="actionEmployees">
+   <property name="icon">
+    <iconset resource="tpqt.qrc">
+     <normaloff>:/icon/user.png</normaloff>:/icon/user.png</iconset>
+   </property>
    <property name="text">
     <string>Employee</string>
    </property>
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="tpqt.qrc"/>
+ </resources>
  <connections/>
 </ui>
