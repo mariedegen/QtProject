@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "addclientwindow.h"
 #include "addemployeewindow.h"
+#include "aboutwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -28,4 +29,10 @@ void MainWindow::on_actionEmployees_triggered()
 {
     addEmployeeWindow aEw;
     aEw.exec();
+}
+
+void MainWindow::on_aboutaction_triggered()
+{
+    aboutWindow aW;
+    aW.exec();
 }
