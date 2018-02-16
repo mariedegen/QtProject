@@ -2,13 +2,14 @@
 #include "ui_mainwindow.h"
 #include "addclientwindow.h"
 #include "addemployeewindow.h"
+#include "aboutwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    this->centralWidget()->setStyleSheet("background: #333;");
+    //this->centralWidget()->setStyleSheet("background: #333;");
     this->setWindowIcon(QIcon("icon/unicorn.png"));
 }
 
@@ -28,4 +29,10 @@ void MainWindow::on_actionEmployees_triggered()
 {
     addEmployeeWindow aEw;
     aEw.exec();
+}
+
+void MainWindow::on_aboutaction_triggered()
+{
+    aboutWindow aW;
+    aW.exec();
 }
