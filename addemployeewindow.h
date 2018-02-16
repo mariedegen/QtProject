@@ -15,6 +15,11 @@ public:
     explicit addEmployeeWindow(QWidget *parent = 0);
     ~addEmployeeWindow();
 
+private slots:
+    void on_pushButton_clicked();
+
+    void on_cancel_btn_clicked();
+
 private:
     Ui::addEmployeeWindow *ui;
 };

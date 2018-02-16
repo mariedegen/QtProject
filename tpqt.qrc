@@ -8,5 +8,7 @@
         <file>icon/exit.png</file>
         <file>icon/unicorn.png</file>
         <file>icon/PolytechTours.png</file>
+        <file>icon/checked.png</file>
+        <file>icon/cancel.png</file>
     </qresource>
 </RCC>

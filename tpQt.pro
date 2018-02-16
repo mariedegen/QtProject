@@ -52,4 +52,6 @@ RESOURCES += \
     tpqt.qrc
 
 DISTFILES += \
-    icon/exit.png
+    icon/exit.png \
+    icon/checked.png \
+    icon/cancel.png
