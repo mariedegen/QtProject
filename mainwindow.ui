@@ -77,6 +77,9 @@
    <property name="text">
     <string>Client</string>
    </property>
+   <property name="shortcut">
+    <string>C</string>
+   </property>
   </action>
   <action name="actionEmployees">
    <property name="icon">
@@ -85,6 +88,9 @@
    </property>
    <property name="text">
     <string>Employee</string>
+   </property>
+   <property name="shortcut">
+    <string>E</string>
    </property>
   </action>
  </widget>
