@@ -6,7 +6,7 @@ addEmployeeWindow::addEmployeeWindow(QWidget *parent) :
     ui(new Ui::addEmployeeWindow)
 {
     ui->setupUi(this);
-    this->setWindowIcon(QIcon("icon/unicorn.ico"));
+    this->setWindowIcon(QIcon("icon/unicorn.png"));
 }
 
 addEmployeeWindow::~addEmployeeWindow()
