@@ -15,6 +15,9 @@ public:
     explicit addClientWindow(QWidget *parent = 0);
     ~addClientWindow();
 
+private slots:
+    void on_cancel_btn_clicked();
+
 private:
     Ui::addClientWindow *ui;
 };

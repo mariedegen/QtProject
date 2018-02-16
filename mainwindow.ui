@@ -144,8 +144,15 @@
    </property>
   </action>
   <action name="aboutaction">
+   <property name="icon">
+    <iconset resource="tpqt.qrc">
+     <normaloff>:/icon/question.png</normaloff>:/icon/question.png</iconset>
+   </property>
    <property name="text">
     <string>?</string>
+   </property>
+   <property name="toolTip">
+    <string>About</string>
    </property>
   </action>
  </widget>

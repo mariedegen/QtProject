@@ -16,6 +16,10 @@
   <property name="windowTitle">
    <string>Add an Employee</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="tpqt.qrc">
+    <normaloff>:/icon/unicorn.png</normaloff>:/icon/unicorn.png</iconset>
+  </property>
   <property name="locale">
    <locale language="English" country="UnitedStates"/>
   </property>

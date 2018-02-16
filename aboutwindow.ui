@@ -25,6 +25,10 @@
   <property name="windowTitle">
    <string>About</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="tpqt.qrc">
+    <normaloff>:/icon/unicorn.png</normaloff>:/icon/unicorn.png</iconset>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_4">

@@ -14,3 +14,8 @@ addClientWindow::~addClientWindow()
 {
     delete ui;
 }
+
+void addClientWindow::on_cancel_btn_clicked()
+{
+    close();
+}

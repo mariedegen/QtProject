@@ -10,5 +10,6 @@
         <file>icon/PolytechTours.png</file>
         <file>icon/checked.png</file>
         <file>icon/cancel.png</file>
+        <file>icon/question.png</file>
     </qresource>
 </RCC>
