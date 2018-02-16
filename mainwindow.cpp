@@ -29,3 +29,8 @@ void MainWindow::on_actionEmployees_triggered()
     addEmployeeWindow aEw;
     aEw.exec();
 }
+
+void MainWindow::on_actionExit_triggered()
+{
+    close();
+}

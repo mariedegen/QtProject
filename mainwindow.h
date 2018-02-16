@@ -20,6 +20,8 @@ private slots:
 
     void on_actionEmployees_triggered();
 
+    void on_actionExit_triggered();
+
 private:
     Ui::MainWindow *ui;
 };
