@@ -7,13 +7,13 @@ namespace Ui {
 class aboutWindow;
 }
 
-class aboutWindow : public QDialog
+class AboutWindow : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit aboutWindow(QWidget *parent = 0);
-    ~aboutWindow();
+    explicit AboutWindow(QWidget *parent = 0);
+    ~AboutWindow();
 
 private:
     Ui::aboutWindow *ui;

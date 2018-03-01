@@ -7,16 +7,18 @@ namespace Ui {
 class addClientWindow;
 }
 
-class addClientWindow : public QDialog
+class AddClientWindow : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit addClientWindow(QWidget *parent = 0);
-    ~addClientWindow();
+    explicit AddClientWindow(QWidget *parent = 0);
+    ~AddClientWindow();
 
 private slots:
     void on_cancel_btn_clicked();
+
+    void on_ok_btn_clicked();
 
 private:
     Ui::addClientWindow *ui;

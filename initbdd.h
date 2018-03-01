@@ -2,10 +2,10 @@
 #define INITBDD_H
 
 
-class initBDD
+class InitBDD
 {
     private:
-        initBDD();
+        InitBDD();
     public:
         static bool Creation_BD(void);
 };

@@ -31,7 +31,8 @@ SOURCES += \
         addclientwindow.cpp \
         addemployeewindow.cpp \
         aboutwindow.cpp \
-        initbdd.cpp
+        initbdd.cpp \
+    searchclient.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -39,14 +40,16 @@ HEADERS += \
         addclientwindow.h \
         addemployeewindow.h \
         aboutwindow.h \
-        initbdd.h
+        initbdd.h \
+    searchclient.h
 
 FORMS += \
         mainwindow.ui \
         identificationdialog.ui \
         addclientwindow.ui \
         addemployeewindow.ui \
-        aboutwindow.ui
+        aboutwindow.ui \
+    searchclient.ui
 
 RESOURCES += \
     tpqt.qrc

@@ -7,18 +7,18 @@ namespace Ui {
 class addEmployeeWindow;
 }
 
-class addEmployeeWindow : public QDialog
+class AddEmployeeWindow : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit addEmployeeWindow(QWidget *parent = 0);
-    ~addEmployeeWindow();
+    explicit AddEmployeeWindow(QWidget *parent = 0);
+    ~AddEmployeeWindow();
 
 private slots:
-    void on_pushButton_clicked();
-
     void on_cancel_btn_clicked();
+
+    void on_ok_btn_clicked();
 
 private:
     Ui::addEmployeeWindow *ui;

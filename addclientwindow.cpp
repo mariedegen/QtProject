@@ -1,7 +1,7 @@
 #include "addclientwindow.h"
 #include "ui_addclientwindow.h"
 
-addClientWindow::addClientWindow(QWidget *parent) :
+AddClientWindow::AddClientWindow(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::addClientWindow)
 {
@@ -10,12 +10,17 @@ addClientWindow::addClientWindow(QWidget *parent) :
 
 }
 
-addClientWindow::~addClientWindow()
+AddClientWindow::~AddClientWindow()
 {
     delete ui;
 }
 
-void addClientWindow::on_cancel_btn_clicked()
+void AddClientWindow::on_cancel_btn_clicked()
 {
     close();
+}
+
+void AddClientWindow::on_ok_btn_clicked()
+{
+    //TODO
 }

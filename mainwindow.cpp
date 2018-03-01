@@ -3,6 +3,7 @@
 #include "addclientwindow.h"
 #include "addemployeewindow.h"
 #include "aboutwindow.h"
+#include "searchclient.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -20,19 +21,25 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_actionClient_triggered()
 {
-    addClientWindow aCw;
+    AddClientWindow aCw;
     aCw.exec();
 
 }
 
 void MainWindow::on_actionEmployees_triggered()
 {
-    addEmployeeWindow aEw;
+    AddEmployeeWindow aEw;
     aEw.exec();
 }
 
 void MainWindow::on_aboutaction_triggered()
 {
-    aboutWindow aW;
+    AboutWindow aW;
     aW.exec();
+}
+
+void MainWindow::on_search_btn_clicked()
+{
+    SearchClient sc;
+    sc.exec();
 }

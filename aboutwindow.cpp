@@ -1,7 +1,7 @@
 #include "aboutwindow.h"
 #include "ui_aboutwindow.h"
 
-aboutWindow::aboutWindow(QWidget *parent) :
+AboutWindow::AboutWindow(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::aboutWindow)
 {
@@ -9,7 +9,7 @@ aboutWindow::aboutWindow(QWidget *parent) :
     this->setWindowIcon(QIcon("icon/unicorn.png"));
 }
 
-aboutWindow::~aboutWindow()
+AboutWindow::~AboutWindow()
 {
     delete ui;
 }
