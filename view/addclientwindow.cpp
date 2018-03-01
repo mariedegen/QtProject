@@ -1,4 +1,4 @@
-#include "addclientwindow.h"
+#include "view/addclientwindow.h"
 #include "ui_addclientwindow.h"
 
 AddClientWindow::AddClientWindow(QWidget *parent) :

@@ -1,16 +1,15 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "addclientwindow.h"
-#include "addemployeewindow.h"
-#include "aboutwindow.h"
-#include "searchclient.h"
+#include "view/addclientwindow.h"
+#include "view/addemployeewindow.h"
+#include "view/aboutwindow.h"
+#include "view/searchclient.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    //this->centralWidget()->setStyleSheet("background: #333;");
     this->setWindowIcon(QIcon("icon/unicorn.png"));
 }
 

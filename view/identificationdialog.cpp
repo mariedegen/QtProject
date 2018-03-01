@@ -1,4 +1,4 @@
-#include "identificationdialog.h"
+#include "view/identificationdialog.h"
 #include "ui_identificationdialog.h"
 #include "mainwindow.h"
 #include <QMessageBox>

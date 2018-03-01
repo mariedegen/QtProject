@@ -25,30 +25,30 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 
 SOURCES += \
-        main.cpp \
-        mainwindow.cpp \
-        identificationdialog.cpp \
-        addclientwindow.cpp \
-        addemployeewindow.cpp \
-        aboutwindow.cpp \
-        initbdd.cpp \
-    searchclient.cpp
+    main.cpp \
+    mainwindow.cpp \
+    view/aboutwindow.cpp \
+    view/addclientwindow.cpp \
+    view/addemployeewindow.cpp \
+    view/identificationdialog.cpp \
+    view/searchclient.cpp \
+    db/initbdd.cpp
 
 HEADERS += \
-        mainwindow.h \
-        identificationdialog.h \
-        addclientwindow.h \
-        addemployeewindow.h \
-        aboutwindow.h \
-        initbdd.h \
-    searchclient.h
+    mainwindow.h \
+    view/aboutwindow.h \
+    view/addclientwindow.h \
+    view/addemployeewindow.h \
+    view/identificationdialog.h \
+    view/searchclient.h \
+    db/initbdd.h
 
 FORMS += \
-        mainwindow.ui \
-        identificationdialog.ui \
-        addclientwindow.ui \
-        addemployeewindow.ui \
-        aboutwindow.ui \
+    mainwindow.ui \
+    identificationdialog.ui \
+    addclientwindow.ui \
+    addemployeewindow.ui \
+    aboutwindow.ui \
     searchclient.ui
 
 RESOURCES += \

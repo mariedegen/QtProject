@@ -1,4 +1,4 @@
-#include "searchclient.h"
+#include "view/searchclient.h"
 #include "ui_searchclient.h"
 
 SearchClient::SearchClient(QWidget *parent) :

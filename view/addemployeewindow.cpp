@@ -1,4 +1,4 @@
-#include "addemployeewindow.h"
+#include "view/addemployeewindow.h"
 #include "ui_addemployeewindow.h"
 
 AddEmployeeWindow::AddEmployeeWindow(QWidget *parent) :
