@@ -34,7 +34,11 @@ SOURCES += \
     view/searchclient.cpp \
     db/initbdd.cpp \
     ressource.cpp \
-    model/ressource.cpp
+    model/ressource.cpp \
+    model/client.cpp \
+    model/type.cpp \
+    model/rdv.cpp \
+    model/compte.cpp
 
 HEADERS += \
     mainwindow.h \
@@ -46,7 +50,11 @@ HEADERS += \
     db/initbdd.h \
     model/employee.h \
     ressource.h \
-    model/ressource.h
+    model/ressource.h \
+    model/client.h \
+    model/type.h \
+    model/rdv.h \
+    model/compte.h
 
 FORMS += \
     mainwindow.ui \
