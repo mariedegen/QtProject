@@ -17,7 +17,7 @@ private:
     int id;
     QString lastname;
     QString firstname;
-    Type *type;
+    Type type;
 
 public:
     /* Constructos & Destructor */
@@ -35,8 +35,8 @@ public:
     QString getFirstname() const;
     void setFirstname(const QString &value);
 
-    Type* getType() const;
-    void setType(const Type value);
+    Type getType() const;
+    void setType(const Type &value);
 };
 
 #endif // RESSOURCE_H
