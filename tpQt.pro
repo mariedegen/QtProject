@@ -33,7 +33,6 @@ SOURCES += \
     view/identificationdialog.cpp \
     view/searchclient.cpp \
     db/initbdd.cpp \
-    ressource.cpp \
     model/ressource.cpp \
     model/client.cpp \
     model/type.cpp \
@@ -48,8 +47,6 @@ HEADERS += \
     view/identificationdialog.h \
     view/searchclient.h \
     db/initbdd.h \
-    model/employee.h \
-    ressource.h \
     model/ressource.h \
     model/client.h \
     model/type.h \
