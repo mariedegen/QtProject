@@ -36,8 +36,9 @@ SOURCES += \
     model/ressource.cpp \
     model/client.cpp \
     model/type.cpp \
+    model/rdv.cpp \
     model/compte.cpp \
-    model/appointment.cpp
+    controller/clientcontroller.cpp
 
 HEADERS += \
     mainwindow.h \
@@ -50,8 +51,9 @@ HEADERS += \
     model/ressource.h \
     model/client.h \
     model/type.h \
+    model/rdv.h \
     model/compte.h \
-    model/appointment.h
+    controller/clientcontroller.h
 
 FORMS += \
     mainwindow.ui \
