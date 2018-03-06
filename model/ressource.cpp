@@ -47,12 +47,12 @@ void Ressource::setFirstname(const QString &value)
     firstname = value;
 }
 
-Type Ressource::getType() const
+Type* Ressource::getType() const
 {
     return type;
 }
 
-void Ressource::setType(const Type &value)
+void Ressource::setType(const Type value)
 {
     type = value;
 }

@@ -3,6 +3,10 @@
 
 #include <QString>
 #include <QDate>
+#include <list>
+#include <QtSql>
+#include <QDebug>
+#include <QFileInfo>
 
 class Client
 {
@@ -71,6 +75,9 @@ public:
 
     int getPriority() const;
     void setPriority(int value);
+
+    std::list<Client> getListClient(QString name);
+
 
 };
 

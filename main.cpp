@@ -12,7 +12,10 @@ int main(int argc, char *argv[])
     if(i.exec()==QDialog::Accepted){
         InitBDD::Creation_BD();
         w.show();
-        return a.exec();
+        int result = a.exec();
+
+        InitBDD::Close_DB();
+        return result;
     }
     return 0;
 }
