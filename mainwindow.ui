@@ -47,86 +47,69 @@
         <item>
          <widget class="QGroupBox" name="groupBox">
           <property name="title">
-           <string>Name (ABC) : </string>
+           <string>Search</string>
           </property>
-          <widget class="QLineEdit" name="s_input_name">
-           <property name="geometry">
-            <rect>
-             <x>10</x>
-             <y>20</y>
-             <width>271</width>
-             <height>21</height>
-            </rect>
-           </property>
-           <property name="autoFillBackground">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </widget>
-        </item>
-        <item>
-         <widget class="QGroupBox" name="groupBox_2">
-          <property name="title">
-           <string>First name (ABC) : </string>
-          </property>
-          <widget class="QLineEdit" name="s_input_fname">
-           <property name="geometry">
-            <rect>
-             <x>10</x>
-             <y>20</y>
-             <width>271</width>
-             <height>21</height>
-            </rect>
-           </property>
-           <property name="autoFillBackground">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </widget>
-        </item>
-        <item>
-         <widget class="QGroupBox" name="groupBox_3">
-          <property name="title">
-           <string>Identification ID :</string>
-          </property>
-          <widget class="QLineEdit" name="s_input_id">
-           <property name="geometry">
-            <rect>
-             <x>10</x>
-             <y>20</y>
-             <width>271</width>
-             <height>21</height>
-            </rect>
-           </property>
-           <property name="autoFillBackground">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </widget>
-        </item>
-        <item>
-         <widget class="QGroupBox" name="groupBox_4">
-          <property name="title">
-           <string>Appointement Date (Between) : </string>
-          </property>
-          <widget class="QWidget" name="verticalLayoutWidget">
-           <property name="geometry">
-            <rect>
-             <x>10</x>
-             <y>20</y>
-             <width>267</width>
-             <height>31</height>
-            </rect>
-           </property>
-           <layout class="QFormLayout" name="formLayout">
-            <item row="0" column="0">
-             <widget class="QDateTimeEdit" name="search_date1"/>
-            </item>
-            <item row="0" column="1">
-             <widget class="QDateTimeEdit" name="search_date2"/>
-            </item>
-           </layout>
-          </widget>
+          <layout class="QFormLayout" name="formLayout_2">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label">
+             <property name="text">
+              <string>Name (Abc)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="s_input_name">
+             <property name="autoFillBackground">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_2">
+             <property name="text">
+              <string>Firstname (Abc)</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLineEdit" name="s_input_fname">
+             <property name="autoFillBackground">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_3">
+             <property name="text">
+              <string>Client ID</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLineEdit" name="s_input_id">
+             <property name="autoFillBackground">
+              <bool>true</bool>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_4">
+             <property name="text">
+              <string>TextLabel</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <layout class="QHBoxLayout" name="horizontalLayout">
+             <item>
+              <widget class="QDateTimeEdit" name="search_date1"/>
+             </item>
+             <item>
+              <widget class="QDateTimeEdit" name="search_date2"/>
+             </item>
+            </layout>
+           </item>
+          </layout>
          </widget>
         </item>
         <item>
@@ -174,7 +157,7 @@
      <x>0</x>
      <y>0</y>
      <width>452</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichi">
