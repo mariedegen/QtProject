@@ -20,6 +20,8 @@ private slots:
 
     void on_ok_btn_clicked();
 
+    void on_comboBox_currentIndexChanged(const QString &arg1);
+
 private:
     Ui::addEmployeeWindow *ui;
 };
