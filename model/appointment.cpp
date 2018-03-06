@@ -1,11 +1,11 @@
 #include "appointment.h"
 
-Appointement::Appointement()
+Appointment::Appointment()
 {
 
 }
 
-Appointement::~Appointement()
+Appointment::~Appointment()
 {
 
 }

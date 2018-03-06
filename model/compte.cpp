@@ -8,7 +8,7 @@ Compte::Compte()
 
 Compte::~Compte()
 {
-    delete ressource;
+
 }
 
 int Compte::getId() const
