@@ -33,7 +33,8 @@ SOURCES += \
     view/identificationdialog.cpp \
     view/searchclient.cpp \
     db/initbdd.cpp \
-    model/employee.cpp
+    ressource.cpp \
+    model/ressource.cpp
 
 HEADERS += \
     mainwindow.h \
@@ -43,7 +44,9 @@ HEADERS += \
     view/identificationdialog.h \
     view/searchclient.h \
     db/initbdd.h \
-    model/employee.h
+    model/employee.h \
+    ressource.h \
+    model/ressource.h
 
 FORMS += \
     mainwindow.ui \
