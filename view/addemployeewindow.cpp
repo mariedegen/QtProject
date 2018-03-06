@@ -26,13 +26,13 @@ void AddEmployeeWindow::on_ok_btn_clicked()
     //TODO
 }
 
-void AddEmployeeWindow::on_comboBox_currentIndexChanged(const QString &arg1)
+void AddEmployeeWindow::on_type_comboBox_currentIndexChanged(const QString &arg1)
 {
-    QString value = ui->comboBox->itemText(ui->comboBox->currentIndex());
+    QString value = ui->type_comboBox->itemText(ui->type_comboBox->currentIndex());
     qDebug() << value;
     if(value == "Computer scientist"){
-        ui->groupBox_3->setEnabled(true);
+        ui->LoginData->setEnabled(true);
     } else {
-        ui->groupBox_3->setEnabled(false);
+        ui->LoginData->setEnabled(false);
     }
 }
