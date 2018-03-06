@@ -10,7 +10,6 @@ Ressource::Ressource(const QString ln, const QString fn)
 {
     lastname = ln;
     firstname = fn;
-    //type = new Type();
 }
 
 Ressource::~Ressource()
