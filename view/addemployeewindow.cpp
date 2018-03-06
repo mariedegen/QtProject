@@ -26,7 +26,7 @@ void AddEmployeeWindow::on_ok_btn_clicked()
     //TODO
 }
 
-void AddEmployeeWindow::on_type_comboBox_currentIndexChanged(const QString &arg1)
+void AddEmployeeWindow::on_type_comboBox_currentIndexChanged()
 {
     QString value = ui->type_comboBox->itemText(ui->type_comboBox->currentIndex());
     qDebug() << value;
