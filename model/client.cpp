@@ -123,8 +123,3 @@ void Client::setPriority(int value)
 {
     priority = value;
 }
-
-std::list<Client> getListClient(QString name)
-{
-
-}

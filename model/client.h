@@ -76,9 +76,6 @@ public:
     int getPriority() const;
     void setPriority(int value);
 
-    std::list<Client> getListClient(QString name);
-
-
 };
 
 #endif // CLIENT_H
