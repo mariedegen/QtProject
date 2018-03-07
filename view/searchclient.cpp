@@ -8,9 +8,6 @@ SearchClient::SearchClient(QWidget *parent) :
     ui(new Ui::SearchClient)
 {
     ui->setupUi(this);
-
-    //unable user to change values
-    //ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
     updateViewTable();
 }
 
@@ -31,25 +28,25 @@ void SearchClient::on_editclient_btn_clicked()
 
 void SearchClient::updateViewTable()
 {
+    //A laisser dans la vue ou à mettre dans le model ??
     QSqlDatabase db = InitBDD::getDatabaseInstance();
-    QSqlQuery query(db);
     QSqlTableModel *model = new QSqlTableModel(this, db);
     model->setTable("TClient");
     model->setEditStrategy(QSqlTableModel::OnFieldChange);
     model->select();
-    //model->setHeaderData(0,Qt::Horizontal, tr("Name"));
-
+    model->setHeaderData(0, Qt::Horizontal, tr("ID"));
+    model->setHeaderData(1, Qt::Horizontal, tr("LastName"));
+    model->setHeaderData(2, Qt::Horizontal, tr("FirstName"));
+    model->setHeaderData(8, Qt::Horizontal, tr("AppointmentDate"));
     ui->tableView->setModel(model);
+    ui->tableView->hideColumn(3);
+    ui->tableView->hideColumn(4);
+    ui->tableView->hideColumn(5);
+    ui->tableView->hideColumn(6);
+    ui->tableView->hideColumn(7);
+    ui->tableView->hideColumn(9);
+    ui->tableView->hideColumn(10);
     ui->tableView->show();
 
-    if(query.exec("SELECT * FROM TClient"))
-    {
-        while(query.next())
-        {
-            //qInfo(query.value(1) .toString().toStdString().c_str());
-            //qInfo(query.value(2) .toString().toStdString().c_str());
-            //qInfo(" ");
-            //add the value to the tableView
-        }
-    }
+
 }
