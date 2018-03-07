@@ -2,6 +2,7 @@
 #define SEARCHCLIENT_H
 
 #include <QDialog>
+#include <QSqlQuery>
 
 namespace Ui {
 class SearchClient;
@@ -17,11 +18,12 @@ public:
 
 private slots:
     void on_deleteclient_btn_clicked();
-
     void on_editclient_btn_clicked();
+    void updateViewTable();
 
 private:
     Ui::SearchClient *ui;
+
 };
 
 #endif // SEARCHCLIENT_H
