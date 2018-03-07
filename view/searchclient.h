@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QSqlQuery>
+#include <QDate>
 
 namespace Ui {
 class SearchClient;
@@ -13,7 +14,7 @@ class SearchClient : public QDialog
     Q_OBJECT
 
 public:
-    explicit SearchClient(QWidget *parent = 0);
+    explicit SearchClient(QString searchName, QString searchfName, int id, QWidget *parent = 0);
     ~SearchClient();
 
 private slots:
@@ -23,7 +24,9 @@ private slots:
 
 private:
     Ui::SearchClient *ui;
-
+    QString name;
+    QString firstName;
+    int id;
 };
 
 #endif // SEARCHCLIENT_H

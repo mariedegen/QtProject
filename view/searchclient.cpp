@@ -3,9 +3,13 @@
 #include "db/initbdd.h"
 #include <QSqlTableModel>
 
-SearchClient::SearchClient(QWidget *parent) :
+SearchClient::SearchClient(QString searchName, QString searchfName, int id, QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::SearchClient)
+    ui(new Ui::SearchClient),
+    name(searchName),
+    firstName(searchfName),
+    id(id)
+
 {
     ui->setupUi(this);
     updateViewTable();
@@ -28,14 +32,14 @@ void SearchClient::on_editclient_btn_clicked()
 
 void SearchClient::updateViewTable()
 {
-    //A laisser dans la vue ou à mettre dans le model ??
-    QString nom = "Ricardo";
     QSqlDatabase db = InitBDD::getDatabaseInstance();
     QSqlQueryModel *model = new QSqlQueryModel();
 
     QSqlQuery *query = new QSqlQuery(db);
-    query->prepare("SELECT id, nom, prenom, daterdv FROM TClient where nom = ?");
-    query->bindValue(0,nom);
+    query->prepare("SELECT id, nom, prenom, daterdv FROM TClient where nom = ? OR prenom = ? OR id = ?");
+    query->bindValue(0,name);
+    query->bindValue(1,firstName);
+    query->bindValue(2,id);
     query->exec();
 
     model->setQuery(*query);

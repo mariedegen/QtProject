@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowIcon(QIcon("icon/unicorn.png"));
+    
 }
 
 MainWindow::~MainWindow()
@@ -39,6 +40,6 @@ void MainWindow::on_aboutaction_triggered()
 
 void MainWindow::on_search_btn_clicked()
 {
-    SearchClient sc;
+    SearchClient sc(ui->s_input_name->text(), ui->s_input_fname->text(), ui->s_input_id->text().toInt());
     sc.exec();
 }
