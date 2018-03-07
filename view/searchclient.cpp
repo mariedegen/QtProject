@@ -29,11 +29,15 @@ void SearchClient::on_editclient_btn_clicked()
 void SearchClient::updateViewTable()
 {
     //A laisser dans la vue ou à mettre dans le model ??
+    QString nom = "Ricardo";
     QSqlDatabase db = InitBDD::getDatabaseInstance();
     QSqlQueryModel *model = new QSqlQueryModel();
+
     QSqlQuery *query = new QSqlQuery(db);
-    query->prepare("SELECT id, nom, prenom, daterdv FROM TClient where nom = 'Ricardo'");
+    query->prepare("SELECT id, nom, prenom, daterdv FROM TClient where nom = ?");
+    query->bindValue(0,nom);
     query->exec();
+
     model->setQuery(*query);
     model->setHeaderData(0, Qt::Horizontal, tr("ID"));
     model->setHeaderData(1, Qt::Horizontal, tr("LastName"));
