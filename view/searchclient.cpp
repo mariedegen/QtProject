@@ -30,23 +30,15 @@ void SearchClient::updateViewTable()
 {
     //A laisser dans la vue ou à mettre dans le model ??
     QSqlDatabase db = InitBDD::getDatabaseInstance();
-    QSqlTableModel *model = new QSqlTableModel(this, db);
-    model->setTable("TClient");
-    model->setEditStrategy(QSqlTableModel::OnFieldChange);
-    model->select();
+    QSqlQueryModel *model = new QSqlQueryModel();
+    QSqlQuery *query = new QSqlQuery(db);
+    query->prepare("SELECT id, nom, prenom, daterdv FROM TClient where nom = 'Ricardo'");
+    query->exec();
+    model->setQuery(*query);
     model->setHeaderData(0, Qt::Horizontal, tr("ID"));
     model->setHeaderData(1, Qt::Horizontal, tr("LastName"));
     model->setHeaderData(2, Qt::Horizontal, tr("FirstName"));
-    model->setHeaderData(8, Qt::Horizontal, tr("AppointmentDate"));
+    model->setHeaderData(3, Qt::Horizontal, tr("AppmtDate"));
     ui->tableView->setModel(model);
-    ui->tableView->hideColumn(3);
-    ui->tableView->hideColumn(4);
-    ui->tableView->hideColumn(5);
-    ui->tableView->hideColumn(6);
-    ui->tableView->hideColumn(7);
-    ui->tableView->hideColumn(9);
-    ui->tableView->hideColumn(10);
     ui->tableView->show();
-
-
 }
