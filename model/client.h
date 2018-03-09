@@ -7,6 +7,7 @@
 #include <QtSql>
 #include <QDebug>
 #include <QFileInfo>
+#include "./controller/toolbox.h"
 
 class Client
 {

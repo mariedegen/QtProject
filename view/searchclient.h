@@ -1,6 +1,7 @@
 #ifndef SEARCHCLIENT_H
 #define SEARCHCLIENT_H
 
+#include "./controller/toolbox.h"
 #include <QDialog>
 #include <QSqlQuery>
 #include <QDate>

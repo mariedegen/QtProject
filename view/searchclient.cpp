@@ -9,7 +9,6 @@ SearchClient::SearchClient(QString searchName, QString searchfName, int id, QWid
     name(searchName),
     firstName(searchfName),
     id(id)
-
 {
     ui->setupUi(this);
     updateViewTable();
@@ -37,6 +36,9 @@ void SearchClient::updateViewTable()
 
     QSqlQuery *query = new QSqlQuery(db);
     query->prepare("SELECT id, nom, prenom, daterdv FROM TClient where nom = ? OR prenom = ? OR id = ?");
+
+    qDebug() << toolbox::capitalize(name);
+
     query->bindValue(0,name);
     query->bindValue(1,firstName);
     query->bindValue(2,id);

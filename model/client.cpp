@@ -31,7 +31,7 @@ QString Client::getName() const
 
 void Client::setName(const QString &value)
 {
-    lastName = value;
+    lastName = toolbox::capitalize(value);
 }
 
 QString Client::getFirstName() const
@@ -41,7 +41,7 @@ QString Client::getFirstName() const
 
 void Client::setFirstName(const QString &value)
 {
-    firstName = value;
+    firstName = toolbox::capitalize(value);
 }
 
 QString Client::getAdress() const
