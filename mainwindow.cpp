@@ -40,6 +40,11 @@ void MainWindow::on_aboutaction_triggered()
 
 void MainWindow::on_search_btn_clicked()
 {
-    SearchClient sc(toolbox::capitalize(ui->s_input_name->text()), toolbox::capitalize(ui->s_input_fname->text()), ui->s_input_id->text().toInt());
-    sc.exec();
+    if(ui->s_input_id->text() == ""){
+        SearchClient sc(toolbox::capitalize(ui->s_input_name->text()), toolbox::capitalize(ui->s_input_fname->text()), -1);
+        sc.exec();
+    }else {
+        SearchClient sc(toolbox::capitalize(ui->s_input_name->text()), toolbox::capitalize(ui->s_input_fname->text()), ui->s_input_id->text().toInt());
+        sc.exec();
+    }
 }

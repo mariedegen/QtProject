@@ -35,13 +35,16 @@ void SearchClient::updateViewTable()
     QSqlQueryModel *model = new QSqlQueryModel();
 
     QSqlQuery *query = new QSqlQuery(db);
-    query->prepare("SELECT id, nom, prenom, daterdv FROM TClient where nom = ? OR prenom = ? OR id = ?");
+    if(id != -1){
+        query->prepare("SELECT id, nom, prenom, daterdv FROM TClient where id = ?");
+        query->bindValue(0,id);
+    } else {
+        query->prepare("SELECT id, nom, prenom, daterdv FROM TClient where nom LIKE ? AND prenom LIKE ?");
+        qDebug() << toolbox::capitalize(name);
+        query->bindValue(0,name + "%");
+        query->bindValue(1,firstName+ "%");
+    }
 
-    qDebug() << toolbox::capitalize(name);
-
-    query->bindValue(0,name);
-    query->bindValue(1,firstName);
-    query->bindValue(2,id);
     query->exec();
 
     model->setQuery(*query);
