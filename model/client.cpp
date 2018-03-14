@@ -171,4 +171,24 @@ QSqlQueryModel* Client::getListClientByCriteria(int id, QString lastName, QStrin
      return model;
 }
 
+void Client::addClientDB(Client client)
+{
+    QSqlDatabase db = InitBDD::getDatabaseInstance();
+    QSqlQuery query(db);
+
+    query.prepare("INSERT INTO TClient (Id, Nom, Prenom, Adresse, Ville, CP, Commentaire, Tel, DateRdv, DureeRdv, Priorite ) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+    query.bindValue(0,client.getId());
+    query.bindValue(1,client.getName());
+    query.bindValue(2,client.getFirstName());
+    query.bindValue(3,client.getAdress());
+    query.bindValue(4,client.getTown());
+    query.bindValue(5,client.getZipCode());
+    query.bindValue(6,client.getDescription());
+    query.bindValue(7,client.getPhoneNumber());
+    query.bindValue(8,client.getAppointmentDate());
+    query.bindValue(9,client.getAppointmentDuration());
+    query.bindValue(10,client.getPriority());
+
+    InitBDD::Close_DB(db);
+}
 // TODO add client to DB
