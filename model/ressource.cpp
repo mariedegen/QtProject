@@ -56,3 +56,5 @@ void Ressource::setType(const Type &value)
 {
     type = value;
 }
+
+

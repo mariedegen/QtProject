@@ -2,6 +2,12 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "ui_mainwindow.h"
+#include "view/addclientwindow.h"
+#include "view/addemployeewindow.h"
+#include "view/aboutwindow.h"
+#include "view/searchclient.h"
+#include "db/initbdd.h"
 
 namespace Ui {
 class MainWindow;
@@ -14,6 +20,8 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+
+    void updateRessourceTree();
 
 private slots:
     void on_actionClient_triggered();
