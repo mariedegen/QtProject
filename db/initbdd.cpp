@@ -174,8 +174,8 @@ bool InitBDD::Creation_BD()
             return false;
         }
 
-        //db.close();
-        //db.removeDatabase("QSQLITE");
+        db.close();
+        db.removeDatabase("QSQLITE");
         return true;
     }
     else
@@ -186,9 +186,8 @@ bool InitBDD::Creation_BD()
     }
 }
 
-void InitBDD::Close_DB()
+void InitBDD::Close_DB(QSqlDatabase db)
 {
-    QSqlDatabase db = getDatabaseInstance();
     db.close();
     db.removeDatabase("QSQLITE");
     qDebug() << "Database properly closed.\n";
@@ -196,7 +195,7 @@ void InitBDD::Close_DB()
 
 QSqlDatabase InitBDD::getDatabaseInstance()
 {
-    QSqlDatabase db = QSqlDatabase::database("QSQLITE");
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE");
     if(db.isValid())
     {
         db.setHostName("localhost");
@@ -204,6 +203,14 @@ QSqlDatabase InitBDD::getDatabaseInstance()
         db.setPassword("password");
         db.setDatabaseName("base_tmp.sqli");
         db.open();
+    }
+    else{
+        qDebug() << db.lastError().text();
+        qDebug() << "qwertghjk";
+    }
+
+    if(db.isOpen()){
+        qDebug() << "isOpen";
     }
 
     return db;

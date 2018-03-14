@@ -11,7 +11,7 @@ class InitBDD
         InitBDD();
     public:
         static bool Creation_BD(void);
-        static void Close_DB(void);
+        static void Close_DB(QSqlDatabase db);
 
         static QSqlDatabase getDatabaseInstance();
 };

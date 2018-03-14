@@ -38,43 +38,7 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QComboBox" name="type_comboBox">
-        <item>
-         <property name="text">
-          <string>Banker type A</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Banker type B</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Accommodation insurer</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Car insurer</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Life insurer</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Computer scientist</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>Other</string>
-         </property>
-        </item>
-       </widget>
+       <widget class="QComboBox" name="type_comboBox"/>
       </item>
      </layout>
     </widget>

@@ -1,6 +1,9 @@
 #ifndef TYPE_H
 #define TYPE_H
+
 #include <QString>
+#include "db/initbdd.h"
+#include <QtSql>
 
 class Type
 {
@@ -25,6 +28,8 @@ public:
 
     QString getLabel() const;
     void setLabel(const QString &value);
+
+    QSqlQuery static getListTypes();
 };
 
 #endif // TYPE_H

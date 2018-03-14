@@ -8,6 +8,7 @@
 #include <QDebug>
 #include <QFileInfo>
 #include "./controller/toolbox.h"
+#include "db/initbdd.h"
 
 class Client
 {

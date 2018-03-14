@@ -28,24 +28,24 @@
      </property>
      <layout class="QFormLayout" name="formLayout_4">
       <item row="0" column="0">
-       <widget class="QLabel" name="label_7">
+       <widget class="QLabel" name="phoneLbl">
         <property name="text">
          <string>Phone</string>
         </property>
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="lineEdit_6"/>
+       <widget class="QLineEdit" name="phoneInput"/>
       </item>
       <item row="2" column="0">
-       <widget class="QLabel" name="label_8">
+       <widget class="QLabel" name="commentLbl">
         <property name="text">
          <string>Comments</string>
         </property>
        </widget>
       </item>
       <item row="3" column="0" colspan="2">
-       <widget class="QTextEdit" name="textEdit"/>
+       <widget class="QTextEdit" name="commentText"/>
       </item>
       <item row="1" column="0" colspan="2">
        <spacer name="horizontalSpacer">
@@ -77,7 +77,7 @@
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="firstname"/>
+       <widget class="QLineEdit" name="firstnameInput"/>
       </item>
       <item row="1" column="0">
        <widget class="QLabel" name="lastnameLbl">
@@ -87,7 +87,7 @@
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="lastname"/>
+       <widget class="QLineEdit" name="lastnameInput"/>
       </item>
      </layout>
     </widget>
@@ -99,34 +99,34 @@
      </property>
      <layout class="QFormLayout" name="formLayout_3">
       <item row="0" column="0">
-       <widget class="QLabel" name="label_4">
+       <widget class="QLabel" name="streetLbl">
         <property name="text">
          <string>Street</string>
         </property>
        </widget>
       </item>
       <item row="0" column="1">
-       <widget class="QLineEdit" name="lineEdit_3"/>
+       <widget class="QLineEdit" name="streetInput"/>
       </item>
       <item row="1" column="0">
-       <widget class="QLabel" name="label_5">
+       <widget class="QLabel" name="cityLbl">
         <property name="text">
          <string>City</string>
         </property>
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QLineEdit" name="lineEdit_4"/>
+       <widget class="QLineEdit" name="cityInput"/>
       </item>
       <item row="2" column="0">
-       <widget class="QLabel" name="label_6">
+       <widget class="QLabel" name="zipCodeLbl">
         <property name="text">
          <string>Zip code</string>
         </property>
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QLineEdit" name="lineEdit_5"/>
+       <widget class="QLineEdit" name="zipCodeInput"/>
       </item>
      </layout>
     </widget>
@@ -138,7 +138,7 @@
      </property>
      <layout class="QFormLayout" name="formLayout_2">
       <item row="0" column="0">
-       <widget class="QLabel" name="label_2">
+       <widget class="QLabel" name="dateLbl">
         <property name="text">
          <string>Date</string>
         </property>
@@ -148,24 +148,24 @@
        <widget class="QDateEdit" name="dateEdit"/>
       </item>
       <item row="1" column="0">
-       <widget class="QLabel" name="label_9">
+       <widget class="QLabel" name="durationLbl">
         <property name="text">
          <string>Duration</string>
         </property>
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QSpinBox" name="spinBox"/>
+       <widget class="QSpinBox" name="durationSpinBox"/>
       </item>
       <item row="2" column="0">
-       <widget class="QLabel" name="label_10">
+       <widget class="QLabel" name="priorityLbl">
         <property name="text">
          <string>Priority</string>
         </property>
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QSpinBox" name="spinBox_2">
+       <widget class="QSpinBox" name="prioritySpinBox">
         <property name="minimum">
          <number>1</number>
         </property>

@@ -62,9 +62,13 @@ void Ressource::setType(const Type &value)
 QSqlQueryModel * Ressource::getRessources(){
     QSqlDatabase db = InitBDD::getDatabaseInstance();
 
-    if(!db.isOpen()){
+    if(db.isOpen()){
         QSqlQueryModel *model = new QSqlQueryModel();
-        model->setQuery("SELECT * FROM TClient",db);
+        model->setQuery("SELECT * FROM TRessource",db);
+        InitBDD::Close_DB(db);
         return model;
+    }else{
+        qDebug() << "DataBase is closed.";
+        return 0;
     }
 }

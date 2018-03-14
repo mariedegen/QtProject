@@ -29,6 +29,7 @@ public:
     /* Methods */
     int getId() const;
     void setId(int value);
+    Type getBdListType() const;
 
     QString getLastname() const;
     void setLastname(const QString &value);

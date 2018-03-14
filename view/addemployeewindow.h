@@ -2,6 +2,10 @@
 #define ADDEMPLOYEEWINDOW_H
 
 #include <QDialog>
+#include "ui_addemployeewindow.h"
+#include <QDebug>
+#include "model/type.h"
+#include <QSqlQuery>
 
 namespace Ui {
 class addEmployeeWindow;
@@ -24,6 +28,7 @@ private slots:
 
 private:
     Ui::addEmployeeWindow *ui;
+    void setTypesComboBox();
 };
 
 #endif // ADDEMPLOYEEWINDOW_H

@@ -12,7 +12,6 @@ IdentificationDialog::IdentificationDialog(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowIcon(QIcon("icon/unicorn.png"));
-    //this->setStyleSheet("background-color: #EA80FC");
     connect(ui->connection_btn,SIGNAL(clicked()),this, SLOT(check_authentification()));
 }
 
@@ -24,6 +23,7 @@ IdentificationDialog::~IdentificationDialog()
 
 void IdentificationDialog::check_authentification()
 {
+    // TODO link with BDD users
     if(!ui->login_input->text().compare("marie") && !ui->password_input->text().compare("stephane")){
         accept();
     } else {

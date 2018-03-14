@@ -2,6 +2,7 @@
 #define ADDCLIENTWINDOW_H
 
 #include <QDialog>
+#include <QMessageBox>
 #include "ui_addclientwindow.h"
 #include "db/initbdd.h"
 #include "model/client.h"
@@ -25,6 +26,7 @@ private slots:
 
 private:
     Ui::addClientWindow *ui;
+    bool formIsCompleted();
 };
 
 #endif // ADDCLIENTWINDOW_H

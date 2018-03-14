@@ -57,5 +57,4 @@ void MainWindow::updateRessourceTree()
     QSqlQueryModel *model = ressource.getRessources();
 
     ui->employeeTree->setModel(model);
-    ui->employeeTree->show();
 }

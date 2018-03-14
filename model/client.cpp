@@ -1,5 +1,4 @@
 #include "client.h"
-#include "db/initbdd.h"
 
 Client::Client()
 {
@@ -143,6 +142,7 @@ int Client::getMaxId() const
     query.prepare("SELECT max(id) FROM TClient");
     query.exec();
     query.next();
+    InitBDD::Close_DB(db);
     return query.value(0).toInt();
 }
 
@@ -158,5 +158,8 @@ QSqlQuery Client::getListClientByCriteria(int id, QString lastName, QString firs
          query.bindValue(1,firstname+ "%");
      }
      query.exec();
+     //InitBDD::Close_DB(db);
      return query;
 }
+
+// TODO add client to DB
