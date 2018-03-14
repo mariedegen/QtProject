@@ -83,6 +83,8 @@ public:
     static QSqlQueryModel* getListClientByCriteria(int id, QString lastName, QString firstname);
 
     static int getMaxId();
+
+    static void addClientDB(Client client);
 };
 
 #endif // CLIENT_H
