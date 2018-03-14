@@ -3,6 +3,7 @@
 
 #include <QString>
 #include "type.h"
+#include <QtSql>
 
 class Ressource
 {
@@ -37,6 +38,8 @@ public:
 
     Type getType() const;
     void setType(const Type &value);
+
+    QSqlQueryModel * getRessources();
 };
 
 #endif // RESSOURCE_H

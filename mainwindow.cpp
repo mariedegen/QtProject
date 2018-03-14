@@ -1,4 +1,11 @@
 #include "mainwindow.h"
+#include "ui_mainwindow.h"
+#include "view/addclientwindow.h"
+#include "view/addemployeewindow.h"
+#include "view/aboutwindow.h"
+#include "view/searchclient.h"
+#include "db/initbdd.h"
+#include "model/ressource.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -6,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowIcon(QIcon("icon/unicorn.png"));
-    updateRessourceTree();
+//    updateRessourceTree();
 }
 
 MainWindow::~MainWindow()
@@ -46,14 +53,8 @@ void MainWindow::on_search_btn_clicked()
 
 void MainWindow::updateRessourceTree()
 {
-    QSqlDatabase db = InitBDD::getDatabaseInstance();
-    QSqlQueryModel *model = new QSqlQueryModel();
-    QSqlQuery query(db);
-
-    query.prepare("SELECT * FROM TClient;");
-    query.exec();
-
-    model->setQuery(query);
+    Ressource ressource;
+    QSqlQueryModel *model = ressource.getRessources();
 
     ui->employeeTree->setModel(model);
     ui->employeeTree->show();

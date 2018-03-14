@@ -1,4 +1,6 @@
 #include "ressource.h"
+#include "db/initbdd.h"
+
 
 Ressource::Ressource()
 {
@@ -57,4 +59,17 @@ void Ressource::setType(const Type &value)
     type = value;
 }
 
+QSqlQueryModel * Ressource::getRessources(){
+    QSqlDatabase db = InitBDD::getDatabaseInstance();
 
+    if(db.isOpen()){
+        QSqlQueryModel *model = new QSqlQueryModel();
+        model->setQuery("SELECT * FROM TClient",db);
+        return model;
+    }
+    else
+    {
+        qDebug() <<"teddddd";
+        return 0;
+    }
+}
