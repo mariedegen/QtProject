@@ -29,7 +29,7 @@ public:
     QString getLabel() const;
     void setLabel(const QString &value);
 
-    QSqlQuery static getListTypes();
+    static QSqlQuery getListTypes();
 };
 
 #endif // TYPE_H

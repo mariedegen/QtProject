@@ -38,6 +38,8 @@ public:
     QString getPassword() const;
     void setPassword(const QString &value);
 
+    static bool checkAccount(QString login, QString password);
+
 };
 
 #endif // COMPTE_H

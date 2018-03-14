@@ -1,8 +1,4 @@
 #include "view/identificationdialog.h"
-#include "ui_identificationdialog.h"
-#include "mainwindow.h"
-#include <QMessageBox>
-#include <iostream>
 
 using namespace std;
 
@@ -24,9 +20,11 @@ IdentificationDialog::~IdentificationDialog()
 void IdentificationDialog::check_authentification()
 {
     // TODO link with BDD users
-    if(!ui->login_input->text().compare("marie") && !ui->password_input->text().compare("stephane")){
+    if( Compte::checkAccount(ui->login_input->text(), ui->password_input->text()) ){
+        qDebug() << "Login OK";
         accept();
     } else {
+        qDebug() << "Login Wrong";
         QMessageBox::warning(this, "Erreur", "The data entered are wrong.");
     }
 }

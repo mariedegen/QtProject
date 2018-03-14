@@ -2,6 +2,11 @@
 #define IDENTIFICATIONDIALOG_H
 
 #include <QDialog>
+#include "ui_identificationdialog.h"
+#include "mainwindow.h"
+#include <QMessageBox>
+#include <iostream>
+#include "model/compte.h"
 
 namespace Ui {
 class IdentificationDialog;

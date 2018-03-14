@@ -41,6 +41,7 @@ QSqlQuery Type::getListTypes()
     QSqlQuery query(db);
     query.prepare("SELECT * FROM TType");
     query.exec();
+    //TODO try to return a QStringList
     //InitBDD::Close_DB(db);
     return query;
 }

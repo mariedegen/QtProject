@@ -50,3 +50,21 @@ void Compte::setPassword(const QString &value)
 {
     password = value;
 }
+
+bool Compte::checkAccount(QString login, QString password)
+{
+    QSqlDatabase db = InitBDD::getDatabaseInstance();
+    QSqlQuery query(db);
+    query.prepare("SELECT Login FROM TCompte WHERE Login = ? AND MdP = ?");
+    query.bindValue(0, login);
+    query.bindValue(1, password);
+    query.exec();
+    query.next();
+    InitBDD::Close_DB(db);
+
+    if( query.value(0).toString().size() > 0 ){
+        return true;
+    } else {
+        return false;
+    }
+}
