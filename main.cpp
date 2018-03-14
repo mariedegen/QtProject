@@ -6,11 +6,12 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
+
     IdentificationDialog i;
 
     if(i.exec()==QDialog::Accepted){
         InitBDD::Creation_BD();
+        MainWindow w;
         w.updateRessourceTree();
         w.show();
         int result = a.exec();

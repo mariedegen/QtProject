@@ -13,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowIcon(QIcon("icon/unicorn.png"));
-//    updateRessourceTree();
+    updateRessourceTree();
 }
 
 MainWindow::~MainWindow()

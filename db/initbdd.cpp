@@ -197,5 +197,14 @@ void InitBDD::Close_DB()
 QSqlDatabase InitBDD::getDatabaseInstance()
 {
     QSqlDatabase db = QSqlDatabase::database("QSQLITE");
+    if(db.isValid())
+    {
+        db.setHostName("localhost");
+        db.setUserName("root");
+        db.setPassword("password");
+        db.setDatabaseName("base_tmp.sqli");
+        db.open();
+    }
+
     return db;
 }

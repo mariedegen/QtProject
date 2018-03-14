@@ -62,14 +62,11 @@ void Ressource::setType(const Type &value)
 QSqlQueryModel * Ressource::getRessources(){
     QSqlDatabase db = InitBDD::getDatabaseInstance();
 
-    if(db.isOpen()){
+    if(!db.isOpen()){
         QSqlQueryModel *model = new QSqlQueryModel();
         model->setQuery("SELECT * FROM TClient",db);
         return model;
-    }
-    else
-    {
-        qDebug() <<"teddddd";
-        return 0;
+    }else{
+        return nullptr_t;
     }
 }
