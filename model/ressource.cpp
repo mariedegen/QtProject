@@ -66,7 +66,5 @@ QSqlQueryModel * Ressource::getRessources(){
         QSqlQueryModel *model = new QSqlQueryModel();
         model->setQuery("SELECT * FROM TClient",db);
         return model;
-    }else{
-        return nullptr_t;
     }
 }

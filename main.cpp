@@ -12,7 +12,6 @@ int main(int argc, char *argv[])
     if(i.exec()==QDialog::Accepted){
         InitBDD::Creation_BD();
         MainWindow w;
-        w.updateRessourceTree();
         w.show();
         int result = a.exec();
 
