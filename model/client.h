@@ -40,6 +40,8 @@ private :
 public:
     /* Constructor */
     Client();
+    Client(int id, QString lastName, QString firstName);
+
     /* Destructor */
     ~Client();
 
@@ -76,6 +78,8 @@ public:
 
     int getPriority() const;
     void setPriority(int value);
+
+    QSqlQuery getListClientByCriteria(int id, QString lastName, QString firstname);
 
 };
 

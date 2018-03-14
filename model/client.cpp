@@ -1,4 +1,5 @@
 #include "client.h"
+#include "db/initbdd.h"
 
 Client::Client()
 {
@@ -122,4 +123,20 @@ int Client::getPriority() const
 void Client::setPriority(int value)
 {
     priority = value;
+}
+
+QSqlQuery Client::getListClientByCriteria(int id, QString lastName, QString firstname){
+     QSqlDatabase db = InitBDD::getDatabaseInstance();
+
+     QSqlQuery query(db);
+     if(id != -1){
+         query.prepare("SELECT id, nom, prenom, daterdv FROM TClient where id = ?");
+         query.bindValue(0,id);
+     } else {
+         query.prepare("SELECT id, nom, prenom, daterdv FROM TClient where nom LIKE ? AND prenom LIKE ?");
+         query.bindValue(0,lastName + "%");
+         query.bindValue(1,firstname+ "%");
+     }
+     query.exec();
+     return query;
 }

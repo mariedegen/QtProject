@@ -4,6 +4,7 @@
 #include "view/addemployeewindow.h"
 #include "view/aboutwindow.h"
 #include "view/searchclient.h"
+#include "model/client.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),

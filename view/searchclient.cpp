@@ -2,6 +2,7 @@
 #include "ui_searchclient.h"
 #include "db/initbdd.h"
 #include <QSqlTableModel>
+#include "model/client.h"
 
 SearchClient::SearchClient(QString searchName, QString searchfName, int id, QWidget *parent) :
     QDialog(parent),
@@ -31,23 +32,11 @@ void SearchClient::on_editclient_btn_clicked()
 
 void SearchClient::updateViewTable()
 {
-    QSqlDatabase db = InitBDD::getDatabaseInstance();
+
     QSqlQueryModel *model = new QSqlQueryModel();
-
-    QSqlQuery *query = new QSqlQuery(db);
-    if(id != -1){
-        query->prepare("SELECT id, nom, prenom, daterdv FROM TClient where id = ?");
-        query->bindValue(0,id);
-    } else {
-        query->prepare("SELECT id, nom, prenom, daterdv FROM TClient where nom LIKE ? AND prenom LIKE ?");
-        qDebug() << toolbox::capitalize(name);
-        query->bindValue(0,name + "%");
-        query->bindValue(1,firstName+ "%");
-    }
-
-    query->exec();
-
-    model->setQuery(*query);
+    Client client;
+    QSqlQuery query = client.getListClientByCriteria(id, name, firstName);
+    model->setQuery(query);
     model->setHeaderData(0, Qt::Horizontal, tr("ID"));
     model->setHeaderData(1, Qt::Horizontal, tr("LastName"));
     model->setHeaderData(2, Qt::Horizontal, tr("FirstName"));
