@@ -2,6 +2,9 @@
 #define ADDCLIENTWINDOW_H
 
 #include <QDialog>
+#include "ui_addclientwindow.h"
+#include "db/initbdd.h"
+#include "model/client.h"
 
 namespace Ui {
 class addClientWindow;
