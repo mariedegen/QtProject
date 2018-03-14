@@ -135,7 +135,7 @@ void Client::setPriority(int value)
     priority = value;
 }
 
-int Client::getMaxId() const
+int Client::getMaxId()
 {
     QSqlDatabase db = InitBDD::getDatabaseInstance();
     QSqlQuery query(db);
@@ -146,9 +146,11 @@ int Client::getMaxId() const
     return query.value(0).toInt();
 }
 
-QSqlQuery Client::getListClientByCriteria(int id, QString lastName, QString firstname){
+QSqlQueryModel* Client::getListClientByCriteria(int id, QString lastName, QString firstname){
      QSqlDatabase db = InitBDD::getDatabaseInstance();
      QSqlQuery query(db);
+     QSqlQueryModel *model = new QSqlQueryModel();
+
      if(id != -1){
          query.prepare("SELECT id, nom, prenom, daterdv FROM TClient where id = ?");
          query.bindValue(0,id);
@@ -158,8 +160,15 @@ QSqlQuery Client::getListClientByCriteria(int id, QString lastName, QString firs
          query.bindValue(1,firstname+ "%");
      }
      query.exec();
-     //InitBDD::Close_DB(db);
-     return query;
+
+     model->setQuery(query);
+     model->setHeaderData(0, Qt::Horizontal, "ID");
+     model->setHeaderData(1, Qt::Horizontal, "LastName");
+     model->setHeaderData(2, Qt::Horizontal, "FirstName");
+     model->setHeaderData(3, Qt::Horizontal, "Appointment Date");
+
+     InitBDD::Close_DB(db);
+     return model;
 }
 
 // TODO add client to DB

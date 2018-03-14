@@ -38,7 +38,7 @@ void AddEmployeeWindow::on_ok_btn_clicked()
 void AddEmployeeWindow::on_type_comboBox_currentIndexChanged()
 {
     QString value = ui->type_comboBox->itemText(ui->type_comboBox->currentIndex());
-    qDebug() << value;
+    //qDebug() << value;
     if(value == "Informaticien"){
         ui->LoginData->setEnabled(true);
     } else {

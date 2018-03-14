@@ -80,9 +80,9 @@ public:
     int getPriority() const;
     void setPriority(int value);
 
-    QSqlQuery getListClientByCriteria(int id, QString lastName, QString firstname);
+    static QSqlQueryModel* getListClientByCriteria(int id, QString lastName, QString firstname);
 
-    int getMaxId() const;
+    static int getMaxId();
 };
 
 #endif // CLIENT_H

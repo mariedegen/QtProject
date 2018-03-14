@@ -32,15 +32,7 @@ void SearchClient::on_editclient_btn_clicked()
 
 void SearchClient::updateViewTable()
 {
-
-    QSqlQueryModel *model = new QSqlQueryModel();
-    Client client;
-    QSqlQuery query = client.getListClientByCriteria(id, name, firstName);
-    model->setQuery(query);
-    model->setHeaderData(0, Qt::Horizontal, tr("ID"));
-    model->setHeaderData(1, Qt::Horizontal, tr("LastName"));
-    model->setHeaderData(2, Qt::Horizontal, tr("FirstName"));
-    model->setHeaderData(3, Qt::Horizontal, tr("AppmtDate"));
+    QSqlQueryModel *model = Client::getListClientByCriteria(id, name, firstName);
     ui->tableView->setModel(model);
     ui->tableView->show();
 }
