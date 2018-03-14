@@ -3,8 +3,19 @@
 
 Client::Client()
 {
+    this->setCurrentId();
     lastName = QString().isNull();
     firstName = QString().isNull();
+    town = QString().isNull();
+    description = QString().isNull();
+    appointmentDate = QDate();
+}
+
+Client::Client(QString lName, QString fName)
+{
+    this->setCurrentId();
+    lastName = lName;
+    firstName = fName;
     town = QString().isNull();
     description = QString().isNull();
     appointmentDate = QDate();
@@ -20,9 +31,9 @@ int Client::getId() const
     return id;
 }
 
-void Client::setId(int value)
+void Client::setCurrentId()
 {
-    id = value;
+    id = this->getMaxId()+1;
 }
 
 QString Client::getName() const
@@ -125,9 +136,18 @@ void Client::setPriority(int value)
     priority = value;
 }
 
+int Client::getMaxId() const
+{
+    QSqlDatabase db = InitBDD::getDatabaseInstance();
+    QSqlQuery query(db);
+    query.prepare("SELECT max(id) FROM TClient");
+    query.exec();
+    query.next();
+    return query.value(0).toInt();
+}
+
 QSqlQuery Client::getListClientByCriteria(int id, QString lastName, QString firstname){
      QSqlDatabase db = InitBDD::getDatabaseInstance();
-
      QSqlQuery query(db);
      if(id != -1){
          query.prepare("SELECT id, nom, prenom, daterdv FROM TClient where id = ?");

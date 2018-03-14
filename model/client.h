@@ -40,14 +40,14 @@ private :
 public:
     /* Constructor */
     Client();
-    Client(int id, QString lastName, QString firstName);
+    Client(QString lastName, QString firstName);
 
     /* Destructor */
     ~Client();
 
     /* Methods */
     int getId() const;
-    void setId(int value);
+    void setCurrentId();
 
     QString getName() const;
     void setName(const QString &value);
@@ -81,6 +81,7 @@ public:
 
     QSqlQuery getListClientByCriteria(int id, QString lastName, QString firstname);
 
+    int getMaxId() const;
 };
 
 #endif // CLIENT_H
