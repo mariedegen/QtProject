@@ -2,7 +2,6 @@
 
 Client::Client()
 {
-    this->setCurrentId();
     lastName = QString().isNull();
     firstName = QString().isNull();
     town = QString().isNull();
@@ -12,7 +11,6 @@ Client::Client()
 
 Client::Client(QString lName, QString fName)
 {
-    this->setCurrentId();
     lastName = lName;
     firstName = fName;
     town = QString().isNull();
@@ -28,11 +26,6 @@ Client::~Client()
 int Client::getId() const
 {
     return id;
-}
-
-void Client::setCurrentId()
-{
-    id = this->getMaxId()+1;
 }
 
 QString Client::getName() const
@@ -133,17 +126,6 @@ int Client::getPriority() const
 void Client::setPriority(int value)
 {
     priority = value;
-}
-
-int Client::getMaxId()
-{
-    QSqlDatabase db = InitBDD::getDatabaseInstance();
-    QSqlQuery query(db);
-    query.prepare("SELECT max(id) FROM TClient");
-    query.exec();
-    query.next();
-    InitBDD::Close_DB(db);
-    return query.value(0).toInt();
 }
 
 QSqlQueryModel* Client::getListClientByCriteria(int id, QString lastName, QString firstname){

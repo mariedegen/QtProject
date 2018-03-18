@@ -48,7 +48,6 @@ public:
 
     /* Methods */
     int getId() const;
-    void setCurrentId();
 
     QString getName() const;
     void setName(const QString &value);
