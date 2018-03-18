@@ -146,6 +146,9 @@
         <iconset resource="tpqt.qrc">
          <normaloff>:/icon/checked.png</normaloff>:/icon/checked.png</iconset>
        </property>
+       <property name="shortcut">
+        <string>Return</string>
+       </property>
        <property name="checkable">
         <bool>false</bool>
        </property>
