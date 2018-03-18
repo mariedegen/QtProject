@@ -56,7 +56,7 @@ void MainWindow::on_search_btn_clicked()
 void MainWindow::updateRessourceTree()
 {
     Ressource ressource;
-    QSqlQueryModel *model = ressource.getRessources();
+    QStandardItemModel * standardModel = ressource.getRessources() ;
 
-    ui->employeeTree->setModel(model);
+    ui->employeeTree->setModel(standardModel);
 }

@@ -8,6 +8,8 @@
 #include "view/aboutwindow.h"
 #include "view/searchclient.h"
 #include "db/initbdd.h"
+#include <QStandardItem>
+#include <QStandardItemModel>
 
 namespace Ui {
 class MainWindow;

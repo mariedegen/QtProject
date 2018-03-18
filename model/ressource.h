@@ -4,6 +4,8 @@
 #include <QString>
 #include "type.h"
 #include <QtSql>
+#include <QStandardItem>
+#include <QStandardItemModel>
 
 class Compte;
 
@@ -41,7 +43,7 @@ public:
     Type getType() const;
     void setType(const Type &value);
 
-    QSqlQueryModel * getRessources();
+    QStandardItemModel *getRessources();
 
     int getMaxId();
     void addRessourceDB(QString name, QString fname, int idType);
