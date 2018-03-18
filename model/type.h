@@ -30,6 +30,7 @@ public:
     void setLabel(const QString &value);
 
     static QSqlQuery getListTypes();
+    int getIdTypeByName(QString nameType);
 };
 
 #endif // TYPE_H

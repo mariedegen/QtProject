@@ -146,9 +146,9 @@ bool InitBDD::Creation_BD()
                                   "UNION SELECT 4, 'Ducroix', 'Lisa', 2 "
                                   "UNION SELECT 5, 'Boulanger', 'Stéphane', 3 "
                                   "UNION SELECT 6, 'Bijet', 'Paul', 3 "
-                                  "UNION SELECT 7, 'durant', 'Mélanie', 4 "
+                                  "UNION SELECT 7, 'Durant', 'Mélanie', 4 "
                                   "UNION SELECT 8, 'Tortue', 'Adeline', 4 "
-                                  "UNION SELECT 9, 'guillet', 'Sonia', 4 "
+                                  "UNION SELECT 9, 'Guillet', 'Sonia', 4 "
                                   "UNION SELECT 10, 'Boulot', 'Marie', 4 "
                                   "UNION SELECT 11, 'Titan', 'Geoffrey', 5 "
                                   "UNION SELECT 12, 'Dupont', 'Christophe', 6");

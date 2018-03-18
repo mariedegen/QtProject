@@ -26,7 +26,7 @@ void AddClientWindow::on_ok_btn_clicked()
         //Client *client = new Client(lName, fName);
     } else {
         QMessageBox msgBox;
-        msgBox.setText("The form must be completed !");
+        msgBox.setText("The form must be filled !");
         msgBox.exec();
     }
 }

@@ -45,3 +45,14 @@ QSqlQuery Type::getListTypes()
     //InitBDD::Close_DB(db);
     return query;
 }
+
+int Type::getIdTypeByName(QString nameType){
+    QSqlDatabase db = InitBDD::getDatabaseInstance();
+    QSqlQuery query(db);
+    query.prepare("SELECT id FROM TType WHERE Label = ?");
+    query.bindValue(0, nameType);
+    query.exec();
+    query.next();
+    InitBDD::Close_DB(db);
+    return query.value(0).toInt();
+}

@@ -25,19 +25,21 @@ void MainWindow::on_actionClient_triggered()
 {
     AddClientWindow aCw;
     aCw.exec();
-
+    updateRessourceTree();
 }
 
 void MainWindow::on_actionEmployees_triggered()
 {
     AddEmployeeWindow aEw;
     aEw.exec();
+    updateRessourceTree();
 }
 
 void MainWindow::on_aboutaction_triggered()
 {
     AboutWindow aW;
     aW.exec();
+    updateRessourceTree();
 }
 
 void MainWindow::on_search_btn_clicked()

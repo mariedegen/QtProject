@@ -5,6 +5,8 @@
 #include "type.h"
 #include <QtSql>
 
+class Compte;
+
 class Ressource
 {
 private:
@@ -28,7 +30,6 @@ public:
 
     /* Methods */
     int getId() const;
-    void setId(int value);
     Type getBdListType() const;
 
     QString getLastname() const;
@@ -41,6 +42,10 @@ public:
     void setType(const Type &value);
 
     QSqlQueryModel * getRessources();
+
+    int getMaxId();
+    void addRessourceDB(QString name, QString fname, int idType);
+    void addRessourceITDB(QString name, QString fname, int idType, QString login, QString mdp);
 };
 
 #endif // RESSOURCE_H
