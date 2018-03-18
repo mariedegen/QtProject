@@ -128,6 +128,9 @@
        <layout class="QGridLayout" name="gridLayout_2">
         <item row="0" column="0">
          <widget class="QTreeView" name="employeeTree">
+          <property name="editTriggers">
+           <set>QAbstractItemView::NoEditTriggers</set>
+          </property>
           <property name="rootIsDecorated">
            <bool>true</bool>
           </property>
