@@ -188,7 +188,7 @@ void Client::addClientDB(Client client)
     query.bindValue(8,client.getAppointmentDate());
     query.bindValue(9,client.getAppointmentDuration());
     query.bindValue(10,client.getPriority());
-
+    query.exec();
     InitBDD::Close_DB(db);
 }
 // TODO add client to DB
