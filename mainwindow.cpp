@@ -69,6 +69,7 @@ void MainWindow::on_delete_ressource_clicked()
     int id = index2.data().toInt();
     Ressource::deleteRessource(id);
     updateRessourceTree();
+    ui->statusBar->showMessage("The ressource has been deleted.");
 }
 
 void MainWindow::on_edit_ressource_2_clicked()
@@ -85,4 +86,5 @@ void MainWindow::on_edit_ressource_clicked()
     AddEmployeeWindow aEw(this, false, id);
     aEw.exec();
     updateRessourceTree();
+    ui->statusBar->showMessage("The ressource has been modified.");
 }
