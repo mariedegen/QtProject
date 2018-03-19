@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>452</width>
-    <height>507</height>
+    <width>440</width>
+    <height>444</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -139,6 +139,24 @@
           </attribute>
          </widget>
         </item>
+        <item row="1" column="0">
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QPushButton" name="edit_ressource">
+            <property name="text">
+             <string>Edit</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="delete_ressource">
+            <property name="text">
+             <string>Delete</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="planning">
@@ -155,7 +173,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>452</width>
+     <width>440</width>
      <height>26</height>
     </rect>
    </property>

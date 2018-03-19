@@ -20,6 +20,7 @@ public:
     /* Constructos & Destructor */
     Type();
     Type(const QString lbl);
+    Type(int i, const QString lbl);
     ~Type();
 
     /* Methods */

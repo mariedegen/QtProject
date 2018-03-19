@@ -59,4 +59,30 @@ void MainWindow::updateRessourceTree()
     QStandardItemModel * standardModel = ressource.getRessources() ;
 
     ui->employeeTree->setModel(standardModel);
+    ui->employeeTree->expandAll();
+}
+
+void MainWindow::on_delete_ressource_clicked()
+{
+    QModelIndex index = ui->employeeTree->currentIndex();
+    QModelIndex index2 = index.sibling(index.row(),1);
+    int id = index2.data().toInt();
+    Ressource::deleteRessource(id);
+    updateRessourceTree();
+}
+
+void MainWindow::on_edit_ressource_2_clicked()
+{
+
+}
+
+void MainWindow::on_edit_ressource_clicked()
+{
+    QModelIndex index = ui->employeeTree->currentIndex();
+    QModelIndex index2 = index.sibling(index.row(),1);
+    int id = index2.data().toInt();
+
+    AddEmployeeWindow aEw(this, false, id);
+    aEw.exec();
+    updateRessourceTree();
 }

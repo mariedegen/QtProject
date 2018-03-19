@@ -7,11 +7,10 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
+    InitBDD::Creation_BD();
     IdentificationDialog i;
 
     if(i.exec()==QDialog::Accepted){
-        InitBDD::Creation_BD();
-
         MainWindow w;
         w.show();
         int result = a.exec();

@@ -6,6 +6,14 @@ Compte::Compte()
     password = QString().isNull();
 }
 
+Compte::Compte(int i, Ressource r, QString pass, QString log)
+{
+    id = i;
+    ressource = r;
+    login = log;
+    password = pass;
+}
+
 Compte::~Compte()
 {
 
@@ -67,4 +75,18 @@ bool Compte::checkAccount(QString login, QString password)
     } else {
         return false;
     }
+}
+
+Compte Compte::getCompteByIdRessource(int id){
+    QSqlDatabase db = InitBDD::getDatabaseInstance();
+    QSqlQuery query(db);
+    query.prepare("SELECT * from TCompte INNER JOIN TRessource ON TCompte.IdRessource = TRessource.Id WHERE IdRessource = ?");
+    query.bindValue(0, id);
+    query.exec();
+    query.next();
+    Ressource r(query.value(5).toInt(), query.value(6).toString(), query.value(7).toString());
+    Compte c(query.value(0).toInt(),r, query.value(3).toString(), query.value(2).toString());
+    InitBDD::Close_DB(db);
+
+    return c;
 }

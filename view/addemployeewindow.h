@@ -16,7 +16,7 @@ class AddEmployeeWindow : public QDialog
     Q_OBJECT
 
 public:
-    explicit AddEmployeeWindow(QWidget *parent = 0);
+    explicit AddEmployeeWindow(QWidget *parent = 0,  bool flag = true, int idR = 0);
     ~AddEmployeeWindow();
 
 private slots:
@@ -29,6 +29,8 @@ private slots:
 private:
     Ui::addEmployeeWindow *ui;
     void setTypesComboBox();
+    bool isNewRessource;
+    int idRessource;
 };
 
 #endif // ADDEMPLOYEEWINDOW_H

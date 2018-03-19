@@ -5,8 +5,9 @@ Type::Type()
     label.isNull();
 }
 
-Type::Type(const QString lbl)
+Type::Type(int i, const QString lbl)
 {
+    id = i;
     label = lbl;
 }
 

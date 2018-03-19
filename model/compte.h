@@ -22,6 +22,7 @@ private :
 public:
     /* Constructor */
     Compte();
+    Compte(int i, Ressource r, QString pass, QString log);
     /* Destructor */
     ~Compte();
 
@@ -39,6 +40,7 @@ public:
     void setPassword(const QString &value);
 
     static bool checkAccount(QString login, QString password);
+    static Compte getCompteByIdRessource(int id);
 
 };
 
