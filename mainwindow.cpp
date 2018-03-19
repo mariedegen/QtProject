@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowIcon(QIcon("icon/unicorn.png"));
+    ui->statusBar->showMessage("Welcome, you logged.", 4000);
     updateRessourceTree();
 }
 
@@ -69,7 +70,7 @@ void MainWindow::on_delete_ressource_clicked()
     int id = index2.data().toInt();
     Ressource::deleteRessource(id);
     updateRessourceTree();
-    ui->statusBar->showMessage("The ressource has been deleted.");
+    ui->statusBar->showMessage("The ressource has been deleted.", 4000);
 }
 
 void MainWindow::on_edit_ressource_2_clicked()
@@ -86,5 +87,5 @@ void MainWindow::on_edit_ressource_clicked()
     AddEmployeeWindow aEw(this, false, id);
     aEw.exec();
     updateRessourceTree();
-    ui->statusBar->showMessage("The ressource has been modified.");
+    ui->statusBar->showMessage("The ressource has been modified.", 4000);
 }
