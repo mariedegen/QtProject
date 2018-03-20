@@ -20,6 +20,7 @@ Client::Client(QString lName, QString fName)
 
 Client::Client(int i, QString lName, QString fName, QString c, QString desc, int zip, int phone, QDate date, int duration, int pri)
 {
+    id = i;
     lastName = lName;
     firstName = fName;
     town = c;
@@ -184,17 +185,4 @@ void Client::addClientDB(Client client)
     query.bindValue(9,client.getPriority());
     query.exec();
     InitBDD::Close_DB(db);
-}
-
-Client Client::getClientById(int id){
-    QSqlDatabase db = InitBDD::getDatabaseInstance();
-    QSqlQuery query(db);
-    query.prepare("Select * FROM TClient WHERE Id = ?");
-    query.bindValue(0, id);
-    query.exec();
-    query.next();
-    Client client(query.value(0).toInt(), query.value(1).toString(), query.value(2).toString(), type);
-    InitBDD::Close_DB(db);
-
-    return client;
 }

@@ -1,19 +1,13 @@
 #include "view/addclientwindow.h"
 
-AddClientWindow::AddClientWindow(QWidget *parent, bool flag, int idR) :
+AddClientWindow::AddClientWindow(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::addClientWindow),
-    isNewClient(flag),
-    idClient(idR)
+    ui(new Ui::addClientWindow)
 {
     ui->setupUi(this);
     this->setWindowIcon(QIcon("icon/unicorn.png"));
-    if(!flag){
-        Client r = Client::getClientById(idR);
-        //insert data
-        }
-    }
 }
+
 
 AddClientWindow::~AddClientWindow()
 {

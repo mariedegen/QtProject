@@ -85,7 +85,6 @@ public:
     static int getMaxId();
 
     static void addClientDB(Client client);
-    static Client getClientById(int idR);
 };
 
 #endif // CLIENT_H

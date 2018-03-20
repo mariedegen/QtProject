@@ -16,7 +16,7 @@ class AddClientWindow : public QDialog
     Q_OBJECT
 
 public:
-    explicit AddClientWindow(QWidget *parent = 0, bool flag, int idR);
+    explicit AddClientWindow(QWidget *parent = 0);
     ~AddClientWindow();
 
 private slots:
@@ -27,8 +27,6 @@ private slots:
 private:
     Ui::addClientWindow *ui;
     bool formIsCompleted();
-    bool isNewClient;
-    int idClient;
 };
 
 #endif // ADDCLIENTWINDOW_H
