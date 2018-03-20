@@ -82,9 +82,9 @@ public:
 
     static QSqlQueryModel* getListClientByCriteria(int id, QString lastName, QString firstname);
 
-    static int getMaxId();
+    static void addClientDB(QString lName, QString fName, QString a,  QString c, QString desc, QString zip, QString phone, QDate date, QString duration, QString pri);
 
-    static void addClientDB(Client client);
+    static void deleteClient(int ID);
 };
 
 #endif // CLIENT_H

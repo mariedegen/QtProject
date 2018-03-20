@@ -22,13 +22,11 @@ void AddClientWindow::on_cancel_btn_clicked()
 void AddClientWindow::on_ok_btn_clicked()
 {
     if(this->formIsCompleted()){
-        //QString lName = ui->lastname->text();
-        //QString fName = ui->firstname->text();
-        //Client *client = new Client(lName, fName);
+        Client::addClientDB(ui->lastnameInput->text(), ui->firstnameInput->text(), ui->streetInput->text(), ui->cityInput->text(), ui->commentLbl->text(), ui->zipCodeInput->text() , ui->phoneInput->text(), ui->dateEdit->date(), ui->durationSpinBox->text(), ui->prioritySpinBox->text());
     } else {
-        QMessageBox msgBox;
-        msgBox.setText("You must fill all the fields !");
-        msgBox.exec();
+        QMessageBox::warning(this, tr("Error"),
+                             tr("You must fill all the fields ! "),
+                             QMessageBox::Close);
     }
 }
 
@@ -48,7 +46,6 @@ bool AddClientWindow::formIsCompleted()
     if(ui->streetInput->text().isEmpty()){
         return false;
     }
-
     // Test if city is completed
     if(ui->cityInput->text().isEmpty()){
         return false;

@@ -167,22 +167,34 @@ QSqlQueryModel* Client::getListClientByCriteria(int id, QString lastName, QStrin
      return model;
 }
 
-void Client::addClientDB(Client client)
+void Client::addClientDB(QString lName, QString fName,QString a,  QString c, QString desc, QString zip, QString phone, QDate date, QString duration, QString pri)
 {
     QSqlDatabase db = InitBDD::getDatabaseInstance();
     QSqlQuery query(db);
-
     query.prepare("INSERT INTO TClient (Nom, Prenom, Adresse, Ville, CP, Commentaire, Tel, DateRdv, DureeRdv, Priorite ) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
-    query.bindValue(0,client.getName());
-    query.bindValue(1,client.getFirstName());
-    query.bindValue(2,client.getAdress());
-    query.bindValue(3,client.getTown());
-    query.bindValue(4,client.getZipCode());
-    query.bindValue(5,client.getDescription());
-    query.bindValue(6,client.getPhoneNumber());
-    query.bindValue(7,client.getAppointmentDate());
-    query.bindValue(8,client.getAppointmentDuration());
-    query.bindValue(9,client.getPriority());
+    query.bindValue(0,lName);
+    query.bindValue(1,fName);
+    query.bindValue(2,a);
+    query.bindValue(3,c);
+    query.bindValue(4,zip.toInt());
+    query.bindValue(5,desc);
+    query.bindValue(6,phone.toInt());
+    query.bindValue(7,date);
+    query.bindValue(8,duration.toInt());
+    query.bindValue(9,pri.toInt());
     query.exec();
     InitBDD::Close_DB(db);
 }
+
+void Client::deleteClient(int ID){
+    QSqlDatabase db = InitBDD::getDatabaseInstance();
+    QSqlQuery query(db);
+    qDebug() << "britney bitch";
+    query.prepare("SELECT * from TClient WHERE Id = ?");
+    query.bindValue(0, ID);
+    query.exec();
+    qDebug() << "oops i did ";
+
+    InitBDD::Close_DB(db);
+}
+

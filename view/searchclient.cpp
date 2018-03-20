@@ -3,6 +3,7 @@
 #include "db/initbdd.h"
 #include <QSqlTableModel>
 #include "model/client.h"
+#include <QMessageBox>
 
 SearchClient::SearchClient(QString searchName, QString searchfName, int id, QWidget *parent) :
     QDialog(parent),
@@ -22,7 +23,18 @@ SearchClient::~SearchClient()
 
 void SearchClient::on_deleteclient_btn_clicked()
 {
-    //TODO
+    QItemSelectionModel *select = ui->tableView->selectionModel();
+    if(!select->hasSelection()){
+        QMessageBox::warning(this, tr("Error"),
+                             tr("You need to select something to delete! "),
+                             QMessageBox::Close);
+    }else{
+        //something is selected
+        int idC = select->selectedRows(0).value(0).data().toInt();
+        qDebug()<< idC;
+        Client::deleteClient(idC);
+        updateViewTable();
+    }
 }
 
 void SearchClient::on_editclient_btn_clicked()
