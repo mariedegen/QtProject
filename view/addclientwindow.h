@@ -6,6 +6,7 @@
 #include "ui_addclientwindow.h"
 #include "db/initbdd.h"
 #include "model/client.h"
+#include <QStatusBar>
 
 namespace Ui {
 class addClientWindow;

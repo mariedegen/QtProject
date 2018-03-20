@@ -13,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     this->setWindowIcon(QIcon("icon/unicorn.png"));
-    ui->statusBar->showMessage("Welcome, you logged.", 4000);
+    ui->statusBar->showMessage("Welcome, you just logged.", 4000);
     updateRessourceTree();
 }
 
@@ -22,16 +22,20 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+QStatusBar * MainWindow::getStatusBar(){
+    return ui->statusBar;
+}
+
 void MainWindow::on_actionClient_triggered()
 {
-    AddClientWindow aCw;
+    AddClientWindow aCw(this);
     aCw.exec();
     updateRessourceTree();
 }
 
 void MainWindow::on_actionEmployees_triggered()
 {
-    AddEmployeeWindow aEw;
+    AddEmployeeWindow aEw(this);
     aEw.exec();
     updateRessourceTree();
 }
@@ -46,12 +50,13 @@ void MainWindow::on_aboutaction_triggered()
 void MainWindow::on_search_btn_clicked()
 {
     if(ui->s_input_id->text() == ""){
-        SearchClient sc(toolbox::capitalize(ui->s_input_name->text()), toolbox::capitalize(ui->s_input_fname->text()), -1);
+        SearchClient sc(toolbox::capitalize(ui->s_input_name->text()), toolbox::capitalize(ui->s_input_fname->text()), -1, this);
         sc.exec();
     }else {
-        SearchClient sc(toolbox::capitalize(ui->s_input_name->text()), toolbox::capitalize(ui->s_input_fname->text()), ui->s_input_id->text().toInt());
+        SearchClient sc(toolbox::capitalize(ui->s_input_name->text()), toolbox::capitalize(ui->s_input_fname->text()), ui->s_input_id->text().toInt(), this);
         sc.exec();
     }
+
 }
 
 void MainWindow::updateRessourceTree()
@@ -71,11 +76,6 @@ void MainWindow::on_delete_ressource_clicked()
     Ressource::deleteRessource(id);
     updateRessourceTree();
     ui->statusBar->showMessage("The ressource has been deleted.", 4000);
-}
-
-void MainWindow::on_edit_ressource_2_clicked()
-{
-
 }
 
 void MainWindow::on_edit_ressource_clicked()

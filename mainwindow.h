@@ -24,6 +24,7 @@ public:
     ~MainWindow();
 
     void updateRessourceTree();
+    QStatusBar * getStatusBar();
 
 private slots:
     void on_actionClient_triggered();
@@ -35,8 +36,6 @@ private slots:
     void on_search_btn_clicked();
 
     void on_delete_ressource_clicked();
-
-    void on_edit_ressource_2_clicked();
 
     void on_edit_ressource_clicked();
 

@@ -3,6 +3,7 @@
 #include "model/ressource.h"
 #include "model/compte.h"
 #include "controller/toolbox.h"
+#include "mainwindow.h"
 
 AddEmployeeWindow::AddEmployeeWindow(QWidget *parent, bool flag, int idR) :
     QDialog(parent),
@@ -53,6 +54,7 @@ void AddEmployeeWindow::on_ok_btn_clicked()
 {
     QString value = ui->type_comboBox->itemText(ui->type_comboBox->currentIndex());
     int idType = Type::getIdTypeByName(value);
+    QStatusBar* statusBar = ((MainWindow*)parent())->getStatusBar();
 
     if(ui->firstname_input->text().isEmpty()){
         QMessageBox::warning(this, tr("Error"),
@@ -75,8 +77,10 @@ void AddEmployeeWindow::on_ok_btn_clicked()
         }else {
             if(isNewRessource){
                 Ressource::addRessourceITDB(toolbox::capitalize(ui->firstname_input->text()),toolbox::capitalize(ui->lastname_input->text()), idType,ui->login_input->text(),ui->password_input->text());
+                statusBar->showMessage("The following ressource has been added : " + toolbox::capitalize(ui->firstname_input->text())+ " "+toolbox::capitalize(ui->lastname_input->text()),4000);
             }else{
                 Ressource::modifyRessource(idRessource, toolbox::capitalize(ui->lastname_input->text()),toolbox::capitalize(ui->firstname_input->text()), idType,ui->login_input->text(),ui->password_input->text());
+                statusBar->showMessage("The following ressource has been modified : " + toolbox::capitalize(ui->firstname_input->text())+ " "+toolbox::capitalize(ui->lastname_input->text()),4000);
             }
             close();
 
@@ -84,8 +88,10 @@ void AddEmployeeWindow::on_ok_btn_clicked()
     }else {
         if(isNewRessource){
             Ressource::addRessourceDB(toolbox::capitalize(ui->firstname_input->text()),toolbox::capitalize(ui->lastname_input->text()), idType);
+            statusBar->showMessage("The following ressource has been added : " + toolbox::capitalize(ui->firstname_input->text())+ " "+toolbox::capitalize(ui->lastname_input->text()),4000);
         }else{
              Ressource::modifyRessource(idRessource, toolbox::capitalize(ui->lastname_input->text()),toolbox::capitalize(ui->firstname_input->text()), idType,ui->login_input->text(),ui->password_input->text());
+            statusBar->showMessage("The following ressource has been modified : " + toolbox::capitalize(ui->firstname_input->text())+ " "+toolbox::capitalize(ui->lastname_input->text()),4000);
         }
         close();
     }

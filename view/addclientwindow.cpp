@@ -1,5 +1,6 @@
 #include "view/addclientwindow.h"
 #include "controller/toolbox.h"
+#include "mainwindow.h"
 
 AddClientWindow::AddClientWindow(QWidget *parent, bool flag, int idC) :
     QDialog(parent),
@@ -39,19 +40,22 @@ void AddClientWindow::on_cancel_btn_clicked()
 
 void AddClientWindow::on_ok_btn_clicked()
 {
+    QStatusBar* statusBar = ((MainWindow*)parent())->getStatusBar();
     if(this->formIsCompleted()){
         if(isNewClient){
             Client::addClientDB(toolbox::capitalize(ui->lastnameInput->text()), toolbox::capitalize(ui->firstnameInput->text()), ui->streetInput->text(), toolbox::capitalize(ui->cityInput->text()), toolbox::capitalize(ui->commentText->toPlainText()), ui->zipCodeInput->text() , ui->phoneInput->text(), ui->dateEdit->date(), ui->durationSpinBox->text(), ui->prioritySpinBox->text());
+            statusBar->showMessage("The following client has been added : "+toolbox::capitalize(ui->lastnameInput->text())+ " "+ toolbox::capitalize(ui->firstnameInput->text()),4000);
+            close();
         }else{
             //modifier le client
             Client::modifyClientDB(toolbox::capitalize(ui->lastnameInput->text()), toolbox::capitalize(ui->firstnameInput->text()), ui->streetInput->text(), toolbox::capitalize(ui->cityInput->text()), toolbox::capitalize(ui->commentText->toPlainText()), ui->zipCodeInput->text() , ui->phoneInput->text(), ui->dateEdit->date(), ui->durationSpinBox->text(), ui->prioritySpinBox->text(), idClient);
+            close();
         }
     } else {
         QMessageBox::warning(this, tr("Error"),
                              tr("You must fill all the fields ! "),
                              QMessageBox::Close);
     }
-    close();
 }
 
 bool AddClientWindow::formIsCompleted()
