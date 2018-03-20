@@ -171,7 +171,7 @@ void Client::addClientDB(QString lName, QString fName,QString a,  QString c, QSt
 {
     QSqlDatabase db = InitBDD::getDatabaseInstance();
     QSqlQuery query(db);
-    query.prepare("INSERT INTO TClient (Nom, Prenom, Adresse, Ville, CP, Commentaire, Tel, DateRdv, DureeRdv, Priorite ) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
+    query.prepare("INSERT INTO TClient (Nom, Prenom, Adresse, Ville, CP, Commentaire, Tel, DateRdv, DureeRdv, Priorite ) VALUES (?,?,?,?,?,?,?,?,?,?)");
     query.bindValue(0,lName);
     query.bindValue(1,fName);
     query.bindValue(2,a);
@@ -182,7 +182,10 @@ void Client::addClientDB(QString lName, QString fName,QString a,  QString c, QSt
     query.bindValue(7,date);
     query.bindValue(8,duration.toInt());
     query.bindValue(9,pri.toInt());
-    query.exec();
+    if(!query.exec()){
+        qDebug() << "------------------------------" << query.executedQuery();
+        qDebug() << query.lastError();
+    }
     InitBDD::Close_DB(db);
 }
 
@@ -190,9 +193,13 @@ void Client::deleteClient(int ID){
     QSqlDatabase db = InitBDD::getDatabaseInstance();
     QSqlQuery query(db);
     qDebug() << "britney bitch";
-    query.prepare("SELECT * from TClient WHERE Id = ?");
+    query.prepare("DELETE FROM TClient WHERE Id = ?");
     query.bindValue(0, ID);
-    query.exec();
+    qDebug() << ID;
+    if(!query.exec()){
+        qDebug() << query.executedQuery();
+        qDebug() << query.lastError();
+    }
     qDebug() << "oops i did ";
 
     InitBDD::Close_DB(db);
