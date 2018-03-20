@@ -52,9 +52,7 @@ void AddEmployeeWindow::on_cancel_btn_clicked()
 void AddEmployeeWindow::on_ok_btn_clicked()
 {
     QString value = ui->type_comboBox->itemText(ui->type_comboBox->currentIndex());
-    Type type;
-    int idType = type.getIdTypeByName(value);
-    Ressource ressource;
+    int idType = Type::getIdTypeByName(value);
 
     if(ui->firstname_input->text().isEmpty()){
         QMessageBox::warning(this, tr("Error"),
@@ -76,18 +74,18 @@ void AddEmployeeWindow::on_ok_btn_clicked()
                                  QMessageBox::Close);
         }else {
             if(isNewRessource){
-                ressource.addRessourceITDB(toolbox::capitalize(ui->firstname_input->text()),toolbox::capitalize(ui->lastname_input->text()), idType,ui->login_input->text(),ui->password_input->text());
+                Ressource::addRessourceITDB(toolbox::capitalize(ui->firstname_input->text()),toolbox::capitalize(ui->lastname_input->text()), idType,ui->login_input->text(),ui->password_input->text());
             }else{
-                ressource.modifyRessource(idRessource, toolbox::capitalize(ui->lastname_input->text()),toolbox::capitalize(ui->firstname_input->text()), idType,ui->login_input->text(),ui->password_input->text());
+                Ressource::modifyRessource(idRessource, toolbox::capitalize(ui->lastname_input->text()),toolbox::capitalize(ui->firstname_input->text()), idType,ui->login_input->text(),ui->password_input->text());
             }
             close();
 
         }
     }else {
         if(isNewRessource){
-            ressource.addRessourceDB(toolbox::capitalize(ui->firstname_input->text()),toolbox::capitalize(ui->lastname_input->text()), idType);
+            Ressource::addRessourceDB(toolbox::capitalize(ui->firstname_input->text()),toolbox::capitalize(ui->lastname_input->text()), idType);
         }else{
-             ressource.modifyRessource(idRessource, toolbox::capitalize(ui->lastname_input->text()),toolbox::capitalize(ui->firstname_input->text()), idType,ui->login_input->text(),ui->password_input->text());
+             Ressource::modifyRessource(idRessource, toolbox::capitalize(ui->lastname_input->text()),toolbox::capitalize(ui->firstname_input->text()), idType,ui->login_input->text(),ui->password_input->text());
         }
         close();
     }

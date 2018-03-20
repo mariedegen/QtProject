@@ -18,6 +18,19 @@ Client::Client(QString lName, QString fName)
     appointmentDate = QDate();
 }
 
+Client::Client(int i, QString lName, QString fName, QString c, QString desc, int zip, int phone, QDate date, int duration, int pri)
+{
+    lastName = lName;
+    firstName = fName;
+    town = c;
+    description = desc;
+    appointmentDate = date;
+    zipCode = zip;
+    phoneNumber = phone;
+    appointmentDuration = duration;
+    priority = pri;
+}
+
 Client::~Client()
 {
 
@@ -172,4 +185,16 @@ void Client::addClientDB(Client client)
     query.exec();
     InitBDD::Close_DB(db);
 }
-// TODO add client to DB
+
+Client Client::getClientById(int id){
+    QSqlDatabase db = InitBDD::getDatabaseInstance();
+    QSqlQuery query(db);
+    query.prepare("Select * FROM TClient WHERE Id = ?");
+    query.bindValue(0, id);
+    query.exec();
+    query.next();
+    Client client(query.value(0).toInt(), query.value(1).toString(), query.value(2).toString(), type);
+    InitBDD::Close_DB(db);
+
+    return client;
+}

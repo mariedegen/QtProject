@@ -47,11 +47,10 @@ public:
 
     QStandardItemModel *getRessources();
 
-    int getMaxId();
-    void addRessourceDB(QString name, QString fname, int idType);
-    void addRessourceITDB(QString name, QString fname, int idType, QString login, QString mdp);
+    static void addRessourceDB(QString name, QString fname, int idType);
+    static void addRessourceITDB(QString name, QString fname, int idType, QString login, QString mdp);
     static Ressource getRessourceById(int id);
-    void modifyRessource(int ID, QString name, QString fname, int idType, QString login, QString mdp);
+    static void modifyRessource(int ID, QString name, QString fname, int idType, QString login, QString mdp);
     static void deleteRessource(int ID);
 };
 

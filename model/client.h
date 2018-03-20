@@ -42,6 +42,7 @@ public:
     /* Constructor */
     Client();
     Client(QString lastName, QString firstName);
+    Client(int i, QString lName, QString fName, QString c, QString desc, int zip, int phone, QDate date, int duration, int pri);
 
     /* Destructor */
     ~Client();
@@ -84,6 +85,7 @@ public:
     static int getMaxId();
 
     static void addClientDB(Client client);
+    static Client getClientById(int idR);
 };
 
 #endif // CLIENT_H
