@@ -18,11 +18,12 @@ Client::Client(QString lName, QString fName)
     appointmentDate = QDate();
 }
 
-Client::Client(int i, QString lName, QString fName, QString c, QString desc, int zip, int phone, QDate date, int duration, int pri)
+Client::Client(int i, QString lName, QString fName, QString a, QString c,int zip, QString desc, int phone, QDate date, int duration, int pri)
 {
     id = i;
     lastName = lName;
     firstName = fName;
+    adress = a;
     town = c;
     description = desc;
     appointmentDate = date;
@@ -182,10 +183,7 @@ void Client::addClientDB(QString lName, QString fName,QString a,  QString c, QSt
     query.bindValue(7,date);
     query.bindValue(8,duration.toInt());
     query.bindValue(9,pri.toInt());
-    if(!query.exec()){
-        qDebug() << "------------------------------" << query.executedQuery();
-        qDebug() << query.lastError();
-    }
+    query.exec();
     InitBDD::Close_DB(db);
 }
 
@@ -195,13 +193,40 @@ void Client::deleteClient(int ID){
     qDebug() << "britney bitch";
     query.prepare("DELETE FROM TClient WHERE Id = ?");
     query.bindValue(0, ID);
-    qDebug() << ID;
-    if(!query.exec()){
-        qDebug() << query.executedQuery();
-        qDebug() << query.lastError();
-    }
-    qDebug() << "oops i did ";
-
+    query.exec();
     InitBDD::Close_DB(db);
 }
 
+Client Client::getClientByID(int ID){
+    QSqlDatabase db = InitBDD::getDatabaseInstance();
+    QSqlQuery query(db);
+    query.prepare("Select * from TClient WHERE Id = ?");
+    query.bindValue(0, ID);
+    query.exec();
+    query.next();
+    Client c(query.value(0).toInt(), query.value(1).toString(), query.value(2).toString(), query.value(3).toString(), query.value(4).toString(), query.value(5).toInt(), query.value(6).toString(), query.value(7).toInt(), query.value(8).toDate(), query.value(9).toInt(), query.value(10).toInt());
+    InitBDD::Close_DB(db);
+
+    return c;
+
+}
+
+void Client::modifyClientDB(QString lName, QString fName,QString a,  QString c, QString desc, QString zip, QString phone, QDate date, QString duration, QString pri, int ID)
+{
+    QSqlDatabase db = InitBDD::getDatabaseInstance();
+    QSqlQuery query(db);
+    query.prepare("UPDATE TClient SET Nom = ?, Prenom = ?, Adresse = ?, Ville = ?, CP = ?, Commentaire = ?, Tel = ?, DateRdv = ?, DureeRdv = ?, Priorite=? WHERE Id = ?");
+    query.bindValue(0,lName);
+    query.bindValue(1,fName);
+    query.bindValue(2,a);
+    query.bindValue(3,c);
+    query.bindValue(4,zip.toInt());
+    query.bindValue(5,desc);
+    query.bindValue(6,phone.toInt());
+    query.bindValue(7,date);
+    query.bindValue(8,duration.toInt());
+    query.bindValue(9,pri.toInt());
+    query.bindValue(10, ID);
+    query.exec();
+    InitBDD::Close_DB(db);
+}

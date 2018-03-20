@@ -1,12 +1,29 @@
 #include "view/addclientwindow.h"
 #include "controller/toolbox.h"
 
-AddClientWindow::AddClientWindow(QWidget *parent) :
+AddClientWindow::AddClientWindow(QWidget *parent, bool flag, int idC) :
     QDialog(parent),
-    ui(new Ui::addClientWindow)
+    ui(new Ui::addClientWindow),
+    idClient(idC),
+    isNewClient(flag)
 {
     ui->setupUi(this);
     this->setWindowIcon(QIcon("icon/unicorn.png"));
+
+    if(!flag){
+        //fill the data
+        Client c = Client::getClientByID(idC);
+        ui->lastnameInput->setText(c.getName());
+        ui->firstnameInput->setText(c.getFirstName());
+        ui->streetInput->setText(c.getAdress());
+        ui->cityInput->setText(c.getTown());
+        ui->zipCodeInput->setText(QString::number(c.getZipCode()));
+        ui->commentText->setText(c.getDescription());
+        ui->dateEdit->setDate(c.getAppointmentDate());
+        ui->durationSpinBox->setValue(c.getAppointmentDuration());
+        ui->phoneInput->setText(QString::number(c.getPhoneNumber()));
+        ui->prioritySpinBox->setValue(c.getPriority());
+    }
 }
 
 
@@ -23,7 +40,12 @@ void AddClientWindow::on_cancel_btn_clicked()
 void AddClientWindow::on_ok_btn_clicked()
 {
     if(this->formIsCompleted()){
-        Client::addClientDB(toolbox::capitalize(ui->lastnameInput->text()), toolbox::capitalize(ui->firstnameInput->text()), ui->streetInput->text(), toolbox::capitalize(ui->cityInput->text()), toolbox::capitalize(ui->commentText->toPlainText()), ui->zipCodeInput->text() , ui->phoneInput->text(), ui->dateEdit->date(), ui->durationSpinBox->text(), ui->prioritySpinBox->text());
+        if(isNewClient){
+            Client::addClientDB(toolbox::capitalize(ui->lastnameInput->text()), toolbox::capitalize(ui->firstnameInput->text()), ui->streetInput->text(), toolbox::capitalize(ui->cityInput->text()), toolbox::capitalize(ui->commentText->toPlainText()), ui->zipCodeInput->text() , ui->phoneInput->text(), ui->dateEdit->date(), ui->durationSpinBox->text(), ui->prioritySpinBox->text());
+        }else{
+            //modifier le client
+            Client::modifyClientDB(toolbox::capitalize(ui->lastnameInput->text()), toolbox::capitalize(ui->firstnameInput->text()), ui->streetInput->text(), toolbox::capitalize(ui->cityInput->text()), toolbox::capitalize(ui->commentText->toPlainText()), ui->zipCodeInput->text() , ui->phoneInput->text(), ui->dateEdit->date(), ui->durationSpinBox->text(), ui->prioritySpinBox->text(), idClient);
+        }
     } else {
         QMessageBox::warning(this, tr("Error"),
                              tr("You must fill all the fields ! "),

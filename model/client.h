@@ -42,7 +42,7 @@ public:
     /* Constructor */
     Client();
     Client(QString lastName, QString firstName);
-    Client(int i, QString lName, QString fName, QString c, QString desc, int zip, int phone, QDate date, int duration, int pri);
+    Client(int i, QString lName, QString fName, QString a, QString c, int zip, QString desc, int phone, QDate date, int duration, int pri);
 
     /* Destructor */
     ~Client();
@@ -85,6 +85,8 @@ public:
     static void addClientDB(QString lName, QString fName, QString a,  QString c, QString desc, QString zip, QString phone, QDate date, QString duration, QString pri);
 
     static void deleteClient(int ID);
+    static Client getClientByID(int ID);
+    static void modifyClientDB(QString lName, QString fName, QString a,  QString c, QString desc, QString zip, QString phone, QDate date, QString duration, QString pri, int ID);
 };
 
 #endif // CLIENT_H
