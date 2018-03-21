@@ -37,7 +37,6 @@ SOURCES += \
     model/client.cpp \
     model/type.cpp \
     model/compte.cpp \
-    controller/clientcontroller.cpp \
     model/appointment.cpp \
     controller/toolbox.cpp
 
