@@ -42,17 +42,17 @@ public:
 
     /**
      * @brief Client constructor
-     * @param i
-     * @param lName
-     * @param fName
-     * @param a
-     * @param c
-     * @param zip
-     * @param desc
-     * @param phone
-     * @param date
-     * @param duration
-     * @param pri
+     * @param i The client's ID
+     * @param lName The client's lastname
+     * @param fName The client's firstname
+     * @param a The client's address
+     * @param c The client's country
+     * @param zip The client's zip code
+     * @param desc The client's description
+     * @param phone The client's phone
+     * @param date The appointment date
+     * @param duration The duration of the appointemant
+     * @param pri The priority
      */
     Client(int i, QString lName, QString fName, QString a, QString c, int zip, QString desc, int phone, QDate date, int duration, int pri);
 

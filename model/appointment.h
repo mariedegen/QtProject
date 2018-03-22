@@ -27,37 +27,37 @@ public:
 
     /**
      * @brief getId
-     * @return
+     * @return The Appointment's ID
      */
     int getId() const;
 
     /**
      * @brief setId
-     * @param value
+     * @param value The id Value
      */
     void setId(int value);
 
     /**
      * @brief getClient
-     * @return
+     * @return The the Appointment's client
      */
     Client getClient() const;
 
     /**
      * @brief setClient
-     * @param value
+     * @param value The Appointment's client
      */
     void setClient(const Client &value);
 
     /**
      * @brief getRessource
-     * @return
+     * @return The Appointment's ressource
      */
     Ressource getRessource() const;
 
     /**
      * @brief setRessource
-     * @param value
+     * @param value The Appointment's value
      */
     void setRessource(const Ressource &value);
 };
