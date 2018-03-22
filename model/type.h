@@ -20,13 +20,13 @@ public:
 
     /**
      * @brief Type Constructor
-     * @param lbl
+     * @param lbl The type label
      */
     Type(const QString lbl);
     /**
      * @brief Type Constructor
-     * @param i
-     * @param lbl
+     * @param i The type id
+     * @param lbl The type label
      */
     Type(int i, const QString lbl);
 
@@ -38,33 +38,39 @@ public:
     /* Methods ----------------------------------------------------*/
     /**
      * @brief getId
-     * @return
+     * @return The type id
      */
     int getId() const;
 
     /**
      * @brief setId
-     * @param value
+     * @param value of the type id to set
      */
     void setId(int value);
 
     /**
      * @brief getLabel
-     * @return
+     * @return The type label
      */
     QString getLabel() const;
 
     /**
      * @brief setLabel
-     * @param value
+     * @param value The type label to set
      */
     void setLabel(const QString &value);
 
     /**
      * @brief getListTypes
-     * @return
+     * @return The list of all types in the database
      */
     static QSqlQuery getListTypes();
+
+    /**
+     * @brief getIdTypeByName
+     * @param nameThe name of the Type to look for
+     * @return The id of the type found
+     */
     static int getIdTypeByName(QString nameType);
 };
 
