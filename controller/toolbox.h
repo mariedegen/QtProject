@@ -14,8 +14,8 @@ public:
     /* Methods ----------------------------------------------------*/
     /**
      * @brief capitalize
-     * @param str
-     * @return
+     * @param str The string to capitalize
+     * @return The string capitalized
      */
     static QString capitalize(const QString &str);
 };
