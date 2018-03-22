@@ -176,6 +176,9 @@
         <iconset resource="tpqt.qrc">
          <normaloff>:/icon/cancel.png</normaloff>:/icon/cancel.png</iconset>
        </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
       </widget>
      </item>
      <item>

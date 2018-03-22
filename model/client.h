@@ -12,19 +12,6 @@
 
 class Client
 {
-    /*
-        id : primary key, integer,
-        lastName : QString,
-        firstName : QString,
-        adress : QString,
-        town : QString,
-        zipcode : integer,
-        description : QString,
-        phoneNumber : integer,
-        appointmentDate : date,
-        appointmentDuration : QString,
-        priority : integer.
-    */
 private :
     int id;
     QString lastName;
@@ -39,53 +26,219 @@ private :
     int priority;
 
 public:
-    /* Constructor */
+    /* Constructor & Destructor -----------------------------------*/
+
+    /**
+     * @brief Client constructor
+     */
     Client();
+
+    /**
+     * @brief Client constructor
+     * @param lastName
+     * @param firstName
+     */
     Client(QString lastName, QString firstName);
+
+    /**
+     * @brief Client constructor
+     * @param i
+     * @param lName
+     * @param fName
+     * @param a
+     * @param c
+     * @param zip
+     * @param desc
+     * @param phone
+     * @param date
+     * @param duration
+     * @param pri
+     */
     Client(int i, QString lName, QString fName, QString a, QString c, int zip, QString desc, int phone, QDate date, int duration, int pri);
 
-    /* Destructor */
+    /**
+     * @brief Client destructor
+     */
     ~Client();
 
-    /* Methods */
+    /* Methods ----------------------------------------------------*/
+    /**
+     * @brief getId
+     * @return
+     */
     int getId() const;
 
+    /**
+     * @brief getName
+     * @return
+     */
     QString getName() const;
+
+    /**
+     * @brief setName
+     * @param value
+     */
     void setName(const QString &value);
 
+    /**
+     * @brief getFirstName
+     * @return
+     */
     QString getFirstName() const;
+
+    /**
+     * @brief setFirstName
+     * @param value
+     */
     void setFirstName(const QString &value);
 
+    /**
+     * @brief getAdress
+     * @return
+     */
     QString getAdress() const;
+
+    /**
+     * @brief setAdress
+     * @param value
+     */
     void setAdress(const QString &value);
 
+    /**
+     * @brief getTown
+     * @return
+     */
     QString getTown() const;
+
+    /**
+     * @brief setTown
+     * @param value
+     */
     void setTown(const QString &value);
 
+    /**
+     * @brief getZipCode
+     * @return
+     */
     int getZipCode() const;
+
+    /**
+     * @brief setZipCode
+     * @param value
+     */
     void setZipCode(int value);
 
+    /**
+     * @brief getDescription
+     * @return
+     */
     QString getDescription() const;
+
+    /**
+     * @brief setDescription
+     * @param value
+     */
     void setDescription(const QString &value);
 
+    /**
+     * @brief getPhoneNumber
+     * @return
+     */
     int getPhoneNumber() const;
+
+    /**
+     * @brief setPhoneNumber
+     * @param value
+     */
     void setPhoneNumber(int value);
 
+    /**
+     * @brief getAppointmentDate
+     * @return
+     */
     QDate getAppointmentDate() const;
+
+    /**
+     * @brief setAppointmentDate
+     * @param value
+     */
     void setAppointmentDate(const QDate &value);
 
+    /**
+     * @brief getAppointmentDuration
+     * @return
+     */
     int getAppointmentDuration() const;
+
+    /**
+     * @brief setAppointmentDuration
+     * @param value
+     */
     void setAppointmentDuration(int value);
 
+    /**
+     * @brief getPriority
+     * @return
+     */
     int getPriority() const;
+
+    /**
+     * @brief setPriority
+     * @param value
+     */
     void setPriority(int value);
 
+    /**
+     * @brief getListClientByCriteria
+     * @param id
+     * @param lastName
+     * @param firstname
+     * @return
+     */
     static QSqlQueryModel* getListClientByCriteria(int id, QString lastName, QString firstname);
 
+    /**
+     * @brief addClientDB
+     * @param lName
+     * @param fName
+     * @param a
+     * @param c
+     * @param desc
+     * @param zip
+     * @param phone
+     * @param date
+     * @param duration
+     * @param pri
+     */
     static void addClientDB(QString lName, QString fName, QString a,  QString c, QString desc, QString zip, QString phone, QDate date, QString duration, QString pri);
 
+    /**
+     * @brief deleteClient
+     * @param ID
+     */
     static void deleteClient(int ID);
+
+    /**
+     * @brief getClientByID
+     * @param ID
+     * @return
+     */
     static Client getClientByID(int ID);
+
+    /**
+     * @brief modifyClientDB
+     * @param lName
+     * @param fName
+     * @param a
+     * @param c
+     * @param desc
+     * @param zip
+     * @param phone
+     * @param date
+     * @param duration
+     * @param pri
+     * @param ID
+     */
     static void modifyClientDB(QString lName, QString fName, QString a,  QString c, QString desc, QString zip, QString phone, QDate date, QString duration, QString pri, int ID);
 };
 

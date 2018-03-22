@@ -14,20 +14,45 @@ class SearchClient : public QDialog
 {
     Q_OBJECT
 
-public:
-    explicit SearchClient(QString searchName, QString searchfName, int id, QWidget *parent = 0);
-    ~SearchClient();
-
-private slots:
-    void on_deleteclient_btn_clicked();
-    void on_editclient_btn_clicked();
-    void updateViewTable();
-
 private:
+    /* Attributes -------------------------------------------------*/
     Ui::SearchClient *ui;
     QString name;
     QString firstName;
     int id;
+
+public:
+    /* Constructor & Destructor -----------------------------------*/
+    /**
+     * @brief SearchClient Constructor
+     * @param searchName
+     * @param searchfName
+     * @param id
+     * @param parent
+     */
+    explicit SearchClient(QString searchName, QString searchfName, int id, QWidget *parent = 0);
+
+    /**
+     * @brief SearchClient Destructor
+     */
+    ~SearchClient();
+
+private slots:
+    /* Methods ----------------------------------------------------*/
+    /**
+     * @brief on_deleteclient_btn_clicked
+     */
+    void on_deleteclient_btn_clicked();
+
+    /**
+     * @brief on_editclient_btn_clicked
+     */
+    void on_editclient_btn_clicked();
+
+    /**
+     * @brief updateViewTable
+     */
+    void updateViewTable();
 };
 
 #endif // SEARCHCLIENT_H

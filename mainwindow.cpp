@@ -105,3 +105,8 @@ void MainWindow::on_edit_ressource_clicked()
     }
 
 }
+
+void MainWindow::on_actionExit_triggered()
+{
+    close();
+}

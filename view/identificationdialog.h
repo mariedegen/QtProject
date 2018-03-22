@@ -15,16 +15,33 @@ class IdentificationDialog;
 class IdentificationDialog : public QDialog
 {
     Q_OBJECT
-
-public:
-    explicit IdentificationDialog(QWidget *parent = 0);
-    ~IdentificationDialog();
-
 private:
+    /* Attributes -------------------------------------------------*/
     Ui::IdentificationDialog *ui;
 
+public:
+    /* Constructor & Destructor -----------------------------------*/
+    /**
+     * @brief IdentificationDialog Constructor
+     * @param parent
+     */
+    explicit IdentificationDialog(QWidget *parent = 0);
+
+    /**
+     * @brief IdentificationDialog Destructor
+     */
+    ~IdentificationDialog();
+
 private slots :
+    /* Methods ----------------------------------------------------*/
+    /**
+     * @brief check_authentification
+     */
     void check_authentification();
+
+    /**
+     * @brief on_cancel_btn_clicked
+     */
     void on_cancel_btn_clicked();
 };
 
