@@ -23,7 +23,7 @@ public:
     /* Constructor & Destructor -----------------------------------*/
     /**
      * @brief MainWindow Constructor
-     * @param parent
+     * @param parent The Qwidget parent
      */
     explicit MainWindow(QWidget *parent = 0);
 
@@ -40,7 +40,7 @@ public:
 
     /**
      * @brief getStatusBar
-     * @return
+     * @return the status bar
      */
     QStatusBar * getStatusBar();
 

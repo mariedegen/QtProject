@@ -27,10 +27,10 @@ public:
     /* Constructor & Destructor -----------------------------------*/
     /**
      * @brief SearchClient Constructor
-     * @param searchName
-     * @param searchfName
-     * @param id
-     * @param parent
+     * @param searchName The last name of the client to search
+     * @param searchfName The first name of the client to search
+     * @param id The id of the client to search
+     * @param parent The QWidget parent
      */
     explicit SearchClient(QString searchName, QString searchfName, int id, QDate date1, QDate date2 ,QWidget *parent = 0);
 

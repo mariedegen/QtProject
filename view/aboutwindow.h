@@ -18,7 +18,7 @@ public:
     /* Constructor & Destructor -----------------------------------*/
     /**
      * @brief AboutWindow Constructor
-     * @param parent
+     * @param parent The QWidget parent
      */
     explicit AboutWindow(QWidget *parent = 0);
 

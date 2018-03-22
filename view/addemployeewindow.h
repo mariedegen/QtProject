@@ -22,7 +22,17 @@ private:
     int idRessource;
 
 public:
+    /**
+     * @brief AddEmployeeWindow constructor
+     * @param parent The Qwidget parent
+     * @param flag A boolean
+     * @param idR The id of the em ployee
+     */
     explicit AddEmployeeWindow(QWidget *parent = 0,  bool flag = true, int idR = 0);
+
+    /**
+     * @brief AddEmployeeWindow destructor
+     */
     ~AddEmployeeWindow();
 
 private slots:

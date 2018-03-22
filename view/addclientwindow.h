@@ -26,9 +26,9 @@ public:
     /* Constructor & Destructor -----------------------------------*/
     /**
      * @brief AddClientWindow Constructor
-     * @param parent
-     * @param flag
-     * @param idC
+     * @param parent The QWidget parent
+     * @param flag A boolean
+     * @param idC The id of the Client
      */
     explicit AddClientWindow(QWidget *parent = 0, bool flag = true, int idC = 0);
     /**

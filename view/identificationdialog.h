@@ -23,7 +23,7 @@ public:
     /* Constructor & Destructor -----------------------------------*/
     /**
      * @brief IdentificationDialog Constructor
-     * @param parent
+     * @param parent The QWidget parent
      */
     explicit IdentificationDialog(QWidget *parent = 0);
 
