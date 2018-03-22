@@ -19,13 +19,11 @@ IdentificationDialog::~IdentificationDialog()
 
 void IdentificationDialog::check_authentification()
 {
-    // TODO link with BDD users
-    if( Compte::checkAccount(ui->login_input->text(), ui->password_input->text()) ){
-        qDebug() << "Login OK";
+    if(Compte::checkAccount(ui->login_input->text(), ui->password_input->text()) ){
         accept();
     } else {
-        qDebug() << "Login Wrong";
         QMessageBox::warning(this, "Erreur", "The data entered are wrong.");
+        ui->password_input->clear();
     }
 }
 
