@@ -69,7 +69,24 @@ void Ressource::setType(const Type &value)
     type = value;
 }
 
-QStandardItemModel * Ressource::getRessources(){
+QSqlQueryModel * Ressource::getRessourcesListEmployee(){
+    QSqlDatabase db = InitBDD::getDatabaseInstance();
+
+    if(db.isOpen()){
+        QSqlQueryModel *model = new QSqlQueryModel();
+        QSqlQuery query(db);
+        query.prepare("SELECT Nom FROM TRessource");
+        query.exec();
+        model->setQuery(query);
+        InitBDD::Close_DB(db);
+        return model;
+    }else {
+        qDebug() << "DataBase is closed.";
+        return 0;
+    }
+}
+
+QStandardItemModel * Ressource::getRessourcesListView(){
     QSqlDatabase db = InitBDD::getDatabaseInstance();
 
     if(db.isOpen()){
@@ -240,5 +257,5 @@ void Ressource::deleteRessource(int ID){
     query.bindValue(0, ID);
     query.exec();
 
-     InitBDD::Close_DB(db);
+    InitBDD::Close_DB(db);
 }

@@ -62,7 +62,7 @@ void MainWindow::on_search_btn_clicked()
 void MainWindow::updateRessourceTree()
 {
     Ressource ressource;
-    QStandardItemModel * standardModel = ressource.getRessources() ;
+    QStandardItemModel * standardModel = ressource.getRessourcesListView() ;
 
     ui->employeeTree->setModel(standardModel);
     ui->employeeTree->expandAll();

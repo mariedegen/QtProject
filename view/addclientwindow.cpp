@@ -1,6 +1,7 @@
 #include "view/addclientwindow.h"
 #include "controller/toolbox.h"
 #include "mainwindow.h"
+#include "model/ressource.h"
 
 AddClientWindow::AddClientWindow(QWidget *parent, bool flag, int idC) :
     QDialog(parent),
@@ -10,6 +11,9 @@ AddClientWindow::AddClientWindow(QWidget *parent, bool flag, int idC) :
 {
     ui->setupUi(this);
     this->setWindowIcon(QIcon("icon/unicorn.png"));
+    QSqlQueryModel * model = Ressource::getRessourcesListEmployee();
+    ui->ressourceList->setModel(model);
+    ui->ressourceList->show();
 
     if(!flag){
         //fill the data

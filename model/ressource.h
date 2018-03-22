@@ -102,11 +102,13 @@ public:
      */
     void setType(const Type &value);
 
+    static QSqlQueryModel *getRessourcesListEmployee();
+
     /**
      * @brief getRessources
      * @return
      */
-    QStandardItemModel *getRessources();
+    QStandardItemModel *getRessourcesListView();
 
     /**
      * @brief addRessourceDB
