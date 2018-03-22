@@ -168,7 +168,7 @@ QSqlQueryModel* Client::getListClientByCriteria(int id, QString lastName, QStrin
      return model;
 }
 
-void Client::addClientDB(QString lName, QString fName,QString a,  QString c, QString desc, QString zip, QString phone, QDate date, QString duration, QString pri)
+void Client::addClientDB(QString lName, QString fName,QString a,  QString c, QString desc, QString zip, QString phone, QDate date, QString duration, QString pri, QModelIndexList list)
 {
     QSqlDatabase db = InitBDD::getDatabaseInstance();
     QSqlQuery query(db);
@@ -184,6 +184,25 @@ void Client::addClientDB(QString lName, QString fName,QString a,  QString c, QSt
     query.bindValue(8,duration.toInt());
     query.bindValue(9,pri.toInt());
     query.exec();
+
+    //récupère l'id du client qui vient d'être ajouté
+    int idC = query.lastInsertId().toInt();
+
+    //Ajout des rdv
+      foreach(const QModelIndex &index, list){
+          query.prepare("SELECT Id FROM TRessource WHERE Nom = ?");
+          query.bindValue(0,index.data(Qt::DisplayRole).toString());
+          query.exec();
+          query.next();
+          //récupère l'id chaque ressource selectionnée
+          int idR = query.value(0).toInt();
+
+          //ajoute un rdv associé entre un client et une ressource, pour chaque ressource
+          query.prepare("INSERT INTO TRdv (IdClient, IdRessource) VALUES (?,?)");
+          query.bindValue(0,idC);
+          query.bindValue(1,idR);
+          query.exec();
+      }
     InitBDD::Close_DB(db);
 }
 
@@ -191,7 +210,12 @@ void Client::deleteClient(int ID){
     QSqlDatabase db = InitBDD::getDatabaseInstance();
     QSqlQuery query(db);
     qDebug() << "britney bitch";
+    //delete le client
     query.prepare("DELETE FROM TClient WHERE Id = ?");
+    query.bindValue(0, ID);
+    query.exec();
+    //delete les rdv associés
+    query.prepare("DELETE FROM TRdv WHERE IdClient in (SELECT IdClient FROM TRdv WHERE IDClient = ?)");
     query.bindValue(0, ID);
     query.exec();
     InitBDD::Close_DB(db);

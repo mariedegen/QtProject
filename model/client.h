@@ -210,7 +210,7 @@ public:
      * @param duration
      * @param pri
      */
-    static void addClientDB(QString lName, QString fName, QString a,  QString c, QString desc, QString zip, QString phone, QDate date, QString duration, QString pri);
+    static void addClientDB(QString lName, QString fName, QString a,  QString c, QString desc, QString zip, QString phone, QDate date, QString duration, QString pri, QModelIndexList list);
 
     /**
      * @brief deleteClient

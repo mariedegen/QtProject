@@ -54,7 +54,8 @@ void AddClientWindow::on_ok_btn_clicked()
     QStatusBar* statusBar = ((MainWindow*)parent())->getStatusBar();
     if(this->formIsCompleted()){
         if(isNewClient){
-            Client::addClientDB(toolbox::capitalize(ui->lastnameInput->text()), toolbox::capitalize(ui->firstnameInput->text()), ui->streetInput->text(), toolbox::capitalize(ui->cityInput->text()), toolbox::capitalize(ui->commentText->toPlainText()), ui->zipCodeInput->text() , ui->phoneInput->text(), ui->dateEdit->date(), ui->durationSpinBox->text(), ui->prioritySpinBox->text());
+            QModelIndexList list = ui->ressourceList->selectionModel()->selectedIndexes();
+            Client::addClientDB(toolbox::capitalize(ui->lastnameInput->text()), toolbox::capitalize(ui->firstnameInput->text()), ui->streetInput->text(), toolbox::capitalize(ui->cityInput->text()), toolbox::capitalize(ui->commentText->toPlainText()), ui->zipCodeInput->text() , ui->phoneInput->text(), ui->dateEdit->date(), ui->durationSpinBox->text(), ui->prioritySpinBox->text(), list);
             statusBar->showMessage("The following client has been added : "+toolbox::capitalize(ui->lastnameInput->text())+ " "+ toolbox::capitalize(ui->firstnameInput->text()),4000);
             close();
         }else{
