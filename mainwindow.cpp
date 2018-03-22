@@ -49,11 +49,25 @@ void MainWindow::on_aboutaction_triggered()
 
 void MainWindow::on_search_btn_clicked()
 {
+    qDebug("Test");
     if(ui->s_input_id->text() == ""){
-        SearchClient sc(toolbox::capitalize(ui->s_input_name->text()), toolbox::capitalize(ui->s_input_fname->text()), -1, this);
+        //SearchClient(QString searchName, QString searchfName, int id, QDate date1, QDate date2 ,QWidget *parent = 0);
+        SearchClient sc(
+                    toolbox::capitalize(ui->s_input_name->text()),  // searchName
+                    toolbox::capitalize(ui->s_input_fname->text()), // searchfName
+                    -1,                                             // ID
+                    ui->search_date1->date(),                       // Date 1
+                    ui->search_date2->date(),                       // Date 2
+                    this);
         sc.exec();
     }else {
-        SearchClient sc(toolbox::capitalize(ui->s_input_name->text()), toolbox::capitalize(ui->s_input_fname->text()), ui->s_input_id->text().toInt(), this);
+        SearchClient sc(
+                    toolbox::capitalize(ui->s_input_name->text()),  // searchName
+                    toolbox::capitalize(ui->s_input_fname->text()), // searchfName
+                    ui->s_input_id->text().toInt(),                 // ID
+                    ui->search_date1->date(),                       // Date 1
+                    ui->search_date2->date(),                       // Date 2
+                    this);
         sc.exec();
     }
 

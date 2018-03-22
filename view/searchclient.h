@@ -20,6 +20,8 @@ private:
     QString name;
     QString firstName;
     int id;
+    QDate date1;
+    QDate date2;
 
 public:
     /* Constructor & Destructor -----------------------------------*/
@@ -30,7 +32,7 @@ public:
      * @param id
      * @param parent
      */
-    explicit SearchClient(QString searchName, QString searchfName, int id, QWidget *parent = 0);
+    explicit SearchClient(QString searchName, QString searchfName, int id, QDate date1, QDate date2 ,QWidget *parent = 0);
 
     /**
      * @brief SearchClient Destructor

@@ -143,20 +143,50 @@ void Client::setPriority(int value)
     priority = value;
 }
 
-QSqlQueryModel* Client::getListClientByCriteria(int id, QString lastName, QString firstname){
-    QSqlDatabase db = InitBDD::getDatabaseInstance();
-    QSqlQuery query(db);
-    QSqlQueryModel *model = new QSqlQueryModel();
+QSqlQueryModel* Client::getListClientByCriteria(int id, QString lastName, QString firstname, QDate date1, QDate date2){
+     QSqlDatabase db = InitBDD::getDatabaseInstance();
+     QSqlQuery query(db);
+     QSqlQueryModel *model = new QSqlQueryModel();
 
-    if(id != -1){
-        query.prepare("SELECT id, nom, prenom, daterdv FROM TClient where id = ?");
-        query.bindValue(0,id);
-    } else {
-        query.prepare("SELECT id, nom, prenom, daterdv FROM TClient where nom LIKE ? AND prenom LIKE ?");
-        query.bindValue(0,lastName + "%");
-        query.bindValue(1,firstname+ "%");
-    }
-    query.exec();
+     QDate date;
+     date.setDate(2000, 1, 1);
+     //qDebug(date.toString());
+
+     /**
+      *  1 id + nom
+      *  2 date + nom
+      *  3 id + date + nom
+      *  default nom
+      */
+
+     int numberQuery = 0; // nom
+
+     //if(id != -1 /* et date */){ // id + date + noms
+     //    numberQuery = 3;
+     //} else if(){ // date + noms
+     //    numberQuery = 2;
+     //} else if(id != -1){ // id + noms
+     //    numberQuery = 1;
+     //}
+
+     //TODO Remplacer par un switch (plus simple pour les dates)
+
+     if(id != -1){
+         query.prepare("SELECT id, nom, prenom, daterdv FROM TClient where id = ?");
+         query.bindValue(0,id);
+         query.bindValue(0,lastName + "%");
+         query.bindValue(1,firstname+ "%");
+     } else if (id != -1 && (lastName.size() > 0 || firstname.size() > 0)) {
+         query.prepare("SELECT id, nom, prenom, daterdv FROM TClient where where id = ? AND nom LIKE ? AND prenom LIKE ?");
+         query.bindValue(0,id);
+         query.bindValue(0,lastName + "%");
+         query.bindValue(1,firstname+ "%");
+     } else {
+         query.prepare("SELECT id, nom, prenom, daterdv FROM TClient where nom LIKE ? AND prenom LIKE ?");
+         query.bindValue(0,lastName + "%");
+         query.bindValue(1,firstname+ "%");
+     }
+     query.exec();
 
     model->setQuery(query);
     model->setHeaderData(0, Qt::Horizontal, "ID");

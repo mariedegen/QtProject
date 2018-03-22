@@ -4,15 +4,18 @@
 #include <QSqlTableModel>
 #include "model/client.h"
 #include <QMessageBox>
+#include <QDate>
 #include "addclientwindow.h"
 #include "mainwindow.h"
 
-SearchClient::SearchClient(QString searchName, QString searchfName, int id, QWidget *parent) :
+SearchClient::SearchClient(QString searchName, QString searchfName, int id, QDate sDate1, QDate sDate2, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::SearchClient),
     name(searchName),
     firstName(searchfName),
-    id(id)
+    id(id),
+    date1(sDate1),
+    date2(sDate2)
 {
     ui->setupUi(this);
     updateViewTable();
@@ -61,7 +64,7 @@ void SearchClient::on_editclient_btn_clicked()
 
 void SearchClient::updateViewTable()
 {
-    QSqlQueryModel *model = Client::getListClientByCriteria(id, name, firstName);
+    QSqlQueryModel *model = Client::getListClientByCriteria(id, name, firstName, date1, date2);
     ui->tableView->setModel(model);
     ui->tableView->show();
 

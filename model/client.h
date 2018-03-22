@@ -195,7 +195,7 @@ public:
      * @param firstname
      * @return
      */
-    static QSqlQueryModel* getListClientByCriteria(int id, QString lastName, QString firstname);
+    static QSqlQueryModel* getListClientByCriteria(int id, QString lastName, QString firstname, QDate date1, QDate date2);
 
     /**
      * @brief addClientDB
