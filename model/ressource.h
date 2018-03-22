@@ -26,25 +26,25 @@ public:
 
     /**
      * @brief Ressource constructor
-     * @param lastname
-     * @param firstname
+     * @param lastname the last name of the resource
+     * @param firstname the first name of the resource
      */
     Ressource(QString lastname, QString firstname);
 
     /**
      * @brief Ressource constructor
-     * @param i
-     * @param ln
-     * @param fn
-     * @param type
+     * @param i the id of the resource
+     * @param ln the last name of the resource
+     * @param fn the first name of the resource
+     * @param type the type of the resource
      */
     Ressource(int i, const QString ln, const QString fn, Type type);
 
     /**
      * @brief Ressource constructor
-     * @param i
-     * @param ln
-     * @param fn
+     * @param i the id of the resource
+     * @param ln the last name of the resource
+     * @param fn the first name of the resource
      */
     Ressource(int i, const QString ln, const QString fn);
 
@@ -56,69 +56,69 @@ public:
     /* Methods ----------------------------------------------------*/
     /**
      * @brief getId
-     * @return
+     * @return the id of the resource
      */
     int getId() const;
 
     /**
      * @brief getBdListType
-     * @return
+     * @return the type of the resource
      */
     Type getBdListType() const;
 
     /**
      * @brief getLastname
-     * @return
+     * @return the last name of the resource
      */
     QString getLastname() const;
 
     /**
      * @brief setLastname
-     * @param value
+     * @param value of the last name of the resource to set
      */
     void setLastname(const QString &value);
 
     /**
      * @brief getFirstname
-     * @return
+     * @return the first name of the resource
      */
     QString getFirstname() const;
 
     /**
      * @brief setFirstname
-     * @param value
+     * @param value of the first name of the resource
      */
     void setFirstname(const QString &value);
 
     /**
      * @brief getType
-     * @return
+     * @return the type of the resource
      */
     Type getType() const;
 
     /**
      * @brief setType
-     * @param value
+     * @param value of the type of the resource to set
      */
     void setType(const Type &value);
 
     /**
      * @brief getRessourcesAddClient
-     * @return model
+     * @return model of the Ressource of the resource
      */
     static QSqlQueryModel *getRessourcesAddClient();
 
     /**
      * @brief getRessources
-     * @return
+     * @return a QStandardItemModel object
      */
     QStandardItemModel *getRessourcesListView();
 
     /**
      * @brief addRessourceDB
-     * @param name
-     * @param fname
-     * @param idType
+     * @param name name of the ressource to add
+     * @param fname first name of the ressource to add
+     * @param idType Type of the ressource to add
      */
     static void addRessourceDB(QString name, QString fname, int idType);
 
@@ -134,25 +134,25 @@ public:
 
     /**
      * @brief getRessourceById
-     * @param id
-     * @return
+     * @param id Id of the resource sought
+     * @return a Ressource object
      */
     static Ressource getRessourceById(int id);
 
     /**
      * @brief modifyRessource
-     * @param ID
-     * @param name
-     * @param fname
-     * @param idType
-     * @param login
-     * @param mdp
+     * @param ID The id of the resource to modify
+     * @param name The new value of the resource last name
+     * @param fname The new value of the resource first name
+     * @param idType The new value of the resource id Type
+     * @param login The new value of the resource login
+     * @param mdp The new value of the resource password
      */
     static void modifyRessource(int ID, QString name, QString fname, int idType, QString login, QString mdp);
 
     /**
      * @brief deleteRessource
-     * @param ID
+     * @param ID The id of the resource to delete
      */
     static void deleteRessource(int ID);
 };
