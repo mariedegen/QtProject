@@ -102,6 +102,10 @@ public:
      */
     void setType(const Type &value);
 
+    /**
+     * @brief getRessourcesAddClient
+     * @return model
+     */
     static QSqlQueryModel *getRessourcesAddClient();
 
     /**

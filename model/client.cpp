@@ -175,7 +175,7 @@ QSqlQueryModel* Client::getListClientByCriteria(int id, QString lastName, QStrin
      //TODO Remplacer par un switch (plus simple pour les dates)
 
      if(id != -1){
-         query.prepare("SELECT id, nom, prenom, daterdv FROM TClient where id = ? AND daterdv BETWEEN ? AND ?");
+         query.prepare("SELECT Id, Nom, Prenom, DateRdv FROM TClient where Id = ? AND DateRdv BETWEEN ? AND ?");
          query.bindValue(0,id);
          query.bindValue(1,date1.toString("yyyy-MM-dd"));
          query.bindValue(2,date2.toString("yyyy-MM-dd"));
