@@ -16,7 +16,7 @@ class InitBDD
         /* Methods ----------------------------------------------------*/
         /**
          * @brief Creation_BD
-         * @return
+         * @return a boolean true if the BDD was created
          */
         static bool Creation_BD(void);
 
@@ -28,7 +28,7 @@ class InitBDD
 
         /**
          * @brief getDatabaseInstance
-         * @return
+         * @return the database's intance
          */
         static QSqlDatabase getDatabaseInstance();
 };
