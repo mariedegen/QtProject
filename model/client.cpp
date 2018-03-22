@@ -148,13 +148,6 @@ QSqlQueryModel* Client::getListClientByCriteria(int id, QString lastName, QStrin
      QSqlQuery query(db);
      QSqlQueryModel *model = new QSqlQueryModel();
 
-     QDate date;
-     date.setDate(2000, 1, 1);
-
-     qDebug() << date.toString("yyyy-MM-dd");
-     qDebug() << date1.toString("yyyy-MM-dd");
-     qDebug() << date2.toString("yyyy-MM-dd");
-
      /**
       *  1 id + nom
       *  2 date + nom
@@ -162,7 +155,7 @@ QSqlQueryModel* Client::getListClientByCriteria(int id, QString lastName, QStrin
       *  default nom
       */
 
-     int numberQuery = 0; // nom
+     //int numberQuery = 0; // nom
 
      //if(id != -1 /* et date */){ // id + date + noms
      //    numberQuery = 3;
@@ -180,10 +173,12 @@ QSqlQueryModel* Client::getListClientByCriteria(int id, QString lastName, QStrin
          query.bindValue(1,date1.toString("yyyy-MM-dd"));
          query.bindValue(2,date2.toString("yyyy-MM-dd"));
      } else if (id != -1 && (lastName.size() > 0 || firstname.size() > 0)) {
-         query.prepare("SELECT id, nom, prenom, daterdv FROM TClient where where id = ? AND nom LIKE ? AND prenom LIKE ?");
+         query.prepare("SELECT id, nom, prenom, daterdv FROM TClient where where id = ? AND nom LIKE ? AND prenom LIKE ? AND daterdv BETWEEN ? AND ?");
          query.bindValue(0,id);
          query.bindValue(1,lastName + "%");
          query.bindValue(2,firstname+ "%");
+         query.bindValue(1,date1.toString("yyyy-MM-dd"));
+         query.bindValue(2,date2.toString("yyyy-MM-dd"));
      } else {
          query.prepare("SELECT id, nom, prenom, daterdv FROM TClient where nom LIKE ? AND prenom LIKE ?");
          query.bindValue(0,lastName + "%");

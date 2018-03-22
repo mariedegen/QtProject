@@ -281,7 +281,7 @@
            <item row="0" column="1">
             <layout class="QHBoxLayout" name="horizontalLayout_3">
              <item>
-              <widget class="QDateTimeEdit" name="search_date1_2"/>
+              <widget class="QDateEdit" name="dateEdit"/>
              </item>
             </layout>
            </item>
@@ -310,7 +310,7 @@
      <x>0</x>
      <y>0</y>
      <width>440</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichi">
