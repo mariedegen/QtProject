@@ -21,10 +21,10 @@ public:
 
     /**
      * @brief Compte Constructor
-     * @param i
-     * @param r
-     * @param pass
-     * @param log
+     * @param i Account Id
+     * @param r Account ressource
+     * @param pass Account password
+     * @param log Account Login
      */
     Compte(int i, Ressource r, QString pass, QString log);
 
@@ -36,37 +36,37 @@ public:
     /* Methods ----------------------------------------------------*/
     /**
      * @brief getId
-     * @return
+     * @return the Account Id
      */
     int getId() const;
 
     /**
      * @brief setId
-     * @param value
+     * @param value od the Account Id
      */
     void setId(int value);
 
     /**
      * @brief getRessource
-     * @return
+     * @return the Account Ressource
      */
     Ressource getRessource() const;
 
     /**
      * @brief setRessource
-     * @param value
+     * @param value the Account Ressource to set
      */
     void setRessource(const Ressource &value);
 
     /**
      * @brief getLogin
-     * @return
+     * @return the Account login
      */
     QString getLogin() const;
 
     /**
      * @brief setLogin
-     * @param value
+     * @param value of the Account login to set
      */
     void setLogin(const QString &value);
 
@@ -78,22 +78,22 @@ public:
 
     /**
      * @brief setPassword
-     * @param value
+     * @param value the Account password to set
      */
     void setPassword(const QString &value);
 
     /**
      * @brief checkAccount
-     * @param login
-     * @param password
-     * @return
+     * @param login the Account login
+     * @param password the Account password
+     * @return a boolean at true if the Account exist
      */
     static bool checkAccount(QString login, QString password);
 
     /**
      * @brief getCompteByIdRessource
-     * @param id
-     * @return
+     * @param id the Account Id
+     * @return the Account with the input id
      */
     static Compte getCompteByIdRessource(int id);
 
