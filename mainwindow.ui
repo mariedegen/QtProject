@@ -284,7 +284,41 @@
            <item row="0" column="1">
             <layout class="QHBoxLayout" name="horizontalLayout_3">
              <item>
-              <widget class="QDateEdit" name="dateEdit"/>
+              <widget class="QDateEdit" name="dateEdit">
+               <property name="enabled">
+                <bool>true</bool>
+               </property>
+               <property name="dateTime">
+                <datetime>
+                 <hour>0</hour>
+                 <minute>0</minute>
+                 <second>0</second>
+                 <year>2013</year>
+                 <month>6</month>
+                 <day>1</day>
+                </datetime>
+               </property>
+               <property name="maximumDateTime">
+                <datetime>
+                 <hour>18</hour>
+                 <minute>0</minute>
+                 <second>0</second>
+                 <year>2020</year>
+                 <month>12</month>
+                 <day>31</day>
+                </datetime>
+               </property>
+               <property name="minimumDateTime">
+                <datetime>
+                 <hour>8</hour>
+                 <minute>0</minute>
+                 <second>0</second>
+                 <year>2013</year>
+                 <month>1</month>
+                 <day>1</day>
+                </datetime>
+               </property>
+              </widget>
              </item>
             </layout>
            </item>
@@ -292,12 +326,15 @@
          </widget>
         </item>
         <item row="1" column="0">
-         <widget class="QPushButton" name="pushButton">
+         <widget class="QPushButton" name="plan">
           <property name="enabled">
            <bool>true</bool>
           </property>
           <property name="text">
-           <string>PushButton</string>
+           <string>Plan</string>
+          </property>
+          <property name="checkable">
+           <bool>false</bool>
           </property>
          </widget>
         </item>
@@ -313,7 +350,7 @@
      <x>0</x>
      <y>0</y>
      <width>440</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFichi">

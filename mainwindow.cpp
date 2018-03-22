@@ -6,6 +6,8 @@
 #include "view/searchclient.h"
 #include "db/initbdd.h"
 #include "model/ressource.h"
+#include <QFileDialog>
+#include "model/appointment.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -123,4 +125,25 @@ void MainWindow::on_edit_ressource_clicked()
 void MainWindow::on_actionExit_triggered()
 {
     close();
+}
+
+void MainWindow::on_plan_clicked()
+{
+    QString fileName = QFileDialog::getSaveFileName(this,
+        tr("Save Planning"), "",
+        tr("(*.txt);;All Files (*)"));
+
+    QFile file(fileName);
+    // Trying to open in WriteOnly and Text mode
+    if(!file.open(QFile::WriteOnly |
+                  QFile::Text))
+    {
+        qDebug() << " Could not open file for writing";
+        return;
+    }
+    QString res = Appointment::getPlanning(ui->dateEdit->date());
+    QTextStream out(&file);
+    out << res;
+    file.flush();
+    file.close();
 }

@@ -60,6 +60,13 @@ public:
      * @param value The Appointment's value
      */
     void setRessource(const Ressource &value);
+
+    /**
+     * @brief getPlanning
+     * @param date
+     * @return
+     */
+    static QString getPlanning(QDate date);
 };
 
 #endif // RDV_H

@@ -80,6 +80,11 @@ private slots:
      */
     void on_actionExit_triggered();
 
+    /**
+     * @brief on_plan_clicked
+     */
+    void on_plan_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
