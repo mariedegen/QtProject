@@ -31,7 +31,7 @@
        <locale language="English" country="UnitedStates"/>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <property name="documentMode">
        <bool>false</bool>
@@ -111,12 +111,12 @@
               <widget class="QDateEdit" name="search_date1">
                <property name="dateTime">
                 <datetime>
-                 <hour>0</hour>
+                 <hour>8</hour>
                  <minute>0</minute>
                  <second>0</second>
                  <year>2010</year>
-                 <month>9</month>
-                 <day>14</day>
+                 <month>1</month>
+                 <day>1</day>
                 </datetime>
                </property>
                <property name="maximumDateTime">
@@ -148,12 +148,12 @@
               <widget class="QDateEdit" name="search_date2">
                <property name="dateTime">
                 <datetime>
-                 <hour>0</hour>
+                 <hour>8</hour>
                  <minute>0</minute>
                  <second>0</second>
                  <year>2010</year>
-                 <month>9</month>
-                 <day>14</day>
+                 <month>1</month>
+                 <day>1</day>
                 </datetime>
                </property>
                <property name="maximumDateTime">
