@@ -60,8 +60,16 @@ void AddClientWindow::on_ok_btn_clicked()
             close();
         }else{
             //modifier le client
-            Client::modifyClientDB(toolbox::capitalize(ui->lastnameInput->text()), toolbox::capitalize(ui->firstnameInput->text()), ui->streetInput->text(), toolbox::capitalize(ui->cityInput->text()), toolbox::capitalize(ui->commentText->toPlainText()), ui->zipCodeInput->text() , ui->phoneInput->text(), ui->dateEdit->date(), ui->durationSpinBox->text(), ui->prioritySpinBox->text(), idClient);
-            close();
+            QItemSelectionModel *select = ui->ressourceList->selectionModel();
+            if(select->hasSelection()){
+                QModelIndexList list = select->selectedIndexes();
+                Client::modifyClientDB(toolbox::capitalize(ui->lastnameInput->text()), toolbox::capitalize(ui->firstnameInput->text()), ui->streetInput->text(), toolbox::capitalize(ui->cityInput->text()), toolbox::capitalize(ui->commentText->toPlainText()), ui->zipCodeInput->text() , ui->phoneInput->text(), ui->dateEdit->date(), ui->durationSpinBox->text(), ui->prioritySpinBox->text(), idClient);
+                Client::modifyAppointmentClient(idClient, list);
+                close();
+            }else{
+                Client::modifyClientDB(toolbox::capitalize(ui->lastnameInput->text()), toolbox::capitalize(ui->firstnameInput->text()), ui->streetInput->text(), toolbox::capitalize(ui->cityInput->text()), toolbox::capitalize(ui->commentText->toPlainText()), ui->zipCodeInput->text() , ui->phoneInput->text(), ui->dateEdit->date(), ui->durationSpinBox->text(), ui->prioritySpinBox->text(), idClient);
+                close();
+            }
         }
     } else {
         QMessageBox::warning(this, tr("Error"),

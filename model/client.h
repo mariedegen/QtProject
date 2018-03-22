@@ -240,6 +240,19 @@ public:
      * @param ID
      */
     static void modifyClientDB(QString lName, QString fName, QString a,  QString c, QString desc, QString zip, QString phone, QDate date, QString duration, QString pri, int ID);
+
+    /**
+     * @brief modifyAppointmentClient
+     * @param ID
+     * @param list
+     */
+    static void modifyAppointmentClient(int ID, QModelIndexList list);
+
+    /**
+     * @brief getRessourceByClientID
+     * @param id
+     * @return
+     */
     static QSqlQueryModel * getRessourceByClientID(int id);
 };
 

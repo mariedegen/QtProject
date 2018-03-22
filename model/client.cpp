@@ -144,28 +144,28 @@ void Client::setPriority(int value)
 }
 
 QSqlQueryModel* Client::getListClientByCriteria(int id, QString lastName, QString firstname){
-     QSqlDatabase db = InitBDD::getDatabaseInstance();
-     QSqlQuery query(db);
-     QSqlQueryModel *model = new QSqlQueryModel();
+    QSqlDatabase db = InitBDD::getDatabaseInstance();
+    QSqlQuery query(db);
+    QSqlQueryModel *model = new QSqlQueryModel();
 
-     if(id != -1){
-         query.prepare("SELECT id, nom, prenom, daterdv FROM TClient where id = ?");
-         query.bindValue(0,id);
-     } else {
-         query.prepare("SELECT id, nom, prenom, daterdv FROM TClient where nom LIKE ? AND prenom LIKE ?");
-         query.bindValue(0,lastName + "%");
-         query.bindValue(1,firstname+ "%");
-     }
-     query.exec();
+    if(id != -1){
+        query.prepare("SELECT id, nom, prenom, daterdv FROM TClient where id = ?");
+        query.bindValue(0,id);
+    } else {
+        query.prepare("SELECT id, nom, prenom, daterdv FROM TClient where nom LIKE ? AND prenom LIKE ?");
+        query.bindValue(0,lastName + "%");
+        query.bindValue(1,firstname+ "%");
+    }
+    query.exec();
 
-     model->setQuery(query);
-     model->setHeaderData(0, Qt::Horizontal, "ID");
-     model->setHeaderData(1, Qt::Horizontal, "LastName");
-     model->setHeaderData(2, Qt::Horizontal, "FirstName");
-     model->setHeaderData(3, Qt::Horizontal, "Appointment Date");
+    model->setQuery(query);
+    model->setHeaderData(0, Qt::Horizontal, "ID");
+    model->setHeaderData(1, Qt::Horizontal, "LastName");
+    model->setHeaderData(2, Qt::Horizontal, "FirstName");
+    model->setHeaderData(3, Qt::Horizontal, "Appointment Date");
 
-     InitBDD::Close_DB(db);
-     return model;
+    InitBDD::Close_DB(db);
+    return model;
 }
 
 void Client::addClientDB(QString lName, QString fName,QString a,  QString c, QString desc, QString zip, QString phone, QDate date, QString duration, QString pri, QModelIndexList list)
@@ -189,20 +189,20 @@ void Client::addClientDB(QString lName, QString fName,QString a,  QString c, QSt
     int idC = query.lastInsertId().toInt();
 
     //Ajout des rdv
-      foreach(const QModelIndex &index, list){
-          query.prepare("SELECT Id FROM TRessource WHERE Nom = ?");
-          query.bindValue(0,index.data(Qt::DisplayRole).toString());
-          query.exec();
-          query.next();
-          //récupère l'id chaque ressource selectionnée
-          int idR = query.value(0).toInt();
+    foreach(const QModelIndex &index, list){
+        query.prepare("SELECT Id FROM TRessource WHERE Nom = ?");
+        query.bindValue(0,index.data(Qt::DisplayRole).toString());
+        query.exec();
+        query.next();
+        //récupère l'id chaque ressource selectionnée
+        int idR = query.value(0).toInt();
 
-          //ajoute un rdv associé entre un client et une ressource, pour chaque ressource
-          query.prepare("INSERT INTO TRdv (IdClient, IdRessource) VALUES (?,?)");
-          query.bindValue(0,idC);
-          query.bindValue(1,idR);
-          query.exec();
-      }
+        //ajoute un rdv associé entre un client et une ressource, pour chaque ressource
+        query.prepare("INSERT INTO TRdv (IdClient, IdRessource) VALUES (?,?)");
+        query.bindValue(0,idC);
+        query.bindValue(1,idR);
+        query.exec();
+    }
     InitBDD::Close_DB(db);
 }
 
@@ -239,6 +239,7 @@ void Client::modifyClientDB(QString lName, QString fName,QString a,  QString c, 
 {
     QSqlDatabase db = InitBDD::getDatabaseInstance();
     QSqlQuery query(db);
+    //modifie le client
     query.prepare("UPDATE TClient SET Nom = ?, Prenom = ?, Adresse = ?, Ville = ?, CP = ?, Commentaire = ?, Tel = ?, DateRdv = ?, DureeRdv = ?, Priorite=? WHERE Id = ?");
     query.bindValue(0,lName);
     query.bindValue(1,fName);
@@ -252,6 +253,35 @@ void Client::modifyClientDB(QString lName, QString fName,QString a,  QString c, 
     query.bindValue(9,pri.toInt());
     query.bindValue(10, ID);
     query.exec();
+
+    InitBDD::Close_DB(db);
+}
+
+void Client::modifyAppointmentClient(int ID, QModelIndexList list){
+    QSqlDatabase db = InitBDD::getDatabaseInstance();
+    QSqlQuery query(db);
+    //modifie les rdv associés
+    //On supprime tout les rdv associés au client
+    //delete les rdv associés
+    query.prepare("DELETE FROM TRdv WHERE IdClient in (SELECT IdClient FROM TRdv WHERE IDClient = ?)");
+    query.bindValue(0, ID);
+    query.exec();
+
+    //On insère les nouveaux rdv
+    foreach(const QModelIndex &index, list){
+        query.prepare("SELECT Id FROM TRessource WHERE Nom = ?");
+        query.bindValue(0,index.data(Qt::DisplayRole).toString());
+        query.exec();
+        query.next();
+        //récupère l'id chaque ressource selectionnée
+        int idR = query.value(0).toInt();
+
+        //ajoute un rdv associé entre un client et une ressource, pour chaque ressource
+        query.prepare("INSERT INTO TRdv (IdClient, IdRessource) VALUES (?,?)");
+        query.bindValue(0,ID);
+        query.bindValue(1,idR);
+        query.exec();
+    }
     InitBDD::Close_DB(db);
 }
 
