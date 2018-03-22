@@ -52,7 +52,6 @@ HEADERS += \
     model/client.h \
     model/type.h \
     model/compte.h \
-    controller/clientcontroller.h \
     model/appointment.h \
     controller/toolbox.h
 

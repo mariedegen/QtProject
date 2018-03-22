@@ -28,7 +28,7 @@ void SearchClient::on_deleteclient_btn_clicked()
     QItemSelectionModel *select = ui->tableView->selectionModel();
     if(!select->hasSelection()){
         QMessageBox::warning(this, tr("Error"),
-                             tr("You need to select something to delete! "),
+                             tr("You need to select something in order to delete! "),
                              QMessageBox::Close);
     }else{
         //something is selected
@@ -46,7 +46,7 @@ void SearchClient::on_editclient_btn_clicked()
     QItemSelectionModel *select = ui->tableView->selectionModel();
     if(!select->hasSelection()){
         QMessageBox::warning(this, tr("Error"),
-                             tr("You need to select something to delete! "),
+                             tr("You need to select something in order to edit! "),
                              QMessageBox::Close);
     }else{
         //something is selected

@@ -70,22 +70,38 @@ void MainWindow::updateRessourceTree()
 
 void MainWindow::on_delete_ressource_clicked()
 {
-    QModelIndex index = ui->employeeTree->currentIndex();
-    QModelIndex index2 = index.sibling(index.row(),1);
-    int id = index2.data().toInt();
-    Ressource::deleteRessource(id);
-    updateRessourceTree();
-    ui->statusBar->showMessage("The ressource has been deleted.", 4000);
+    QItemSelectionModel *select = ui->employeeTree->selectionModel();
+    if(!select->hasSelection()){
+        QMessageBox::warning(this, tr("Error"),
+                             tr("You need to select something in order to delete! "),
+                             QMessageBox::Close);
+    }else {
+
+        QModelIndex index = ui->employeeTree->currentIndex();
+        QModelIndex index2 = index.sibling(index.row(),1);
+        int id = index2.data().toInt();
+        Ressource::deleteRessource(id);
+        updateRessourceTree();
+        ui->statusBar->showMessage("The ressource has been deleted.", 4000);
+    }
 }
 
 void MainWindow::on_edit_ressource_clicked()
 {
-    QModelIndex index = ui->employeeTree->currentIndex();
-    QModelIndex index2 = index.sibling(index.row(),1);
-    int id = index2.data().toInt();
+    QItemSelectionModel *select = ui->employeeTree->selectionModel();
+    if(!select->hasSelection()){
+        QMessageBox::warning(this, tr("Error"),
+                             tr("You need to select something in order to edit! "),
+                             QMessageBox::Close);
+    }else {
+        QModelIndex index = ui->employeeTree->currentIndex();
+        QModelIndex index2 = index.sibling(index.row(),1);
+        int id = index2.data().toInt();
 
-    AddEmployeeWindow aEw(this, false, id);
-    aEw.exec();
-    updateRessourceTree();
-    ui->statusBar->showMessage("The ressource has been modified.", 4000);
+        AddEmployeeWindow aEw(this, false, id);
+        aEw.exec();
+        updateRessourceTree();
+        ui->statusBar->showMessage("The ressource has been modified.", 4000);
+    }
+
 }
