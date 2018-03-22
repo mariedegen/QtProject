@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>640</width>
-    <height>604</height>
+    <height>606</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -183,9 +183,6 @@
         </property>
        </widget>
       </item>
-      <item row="0" column="1">
-       <widget class="QDateEdit" name="dateEdit"/>
-      </item>
       <item row="1" column="0">
        <widget class="QLabel" name="durationLbl">
         <property name="text">
@@ -228,7 +225,79 @@
        </widget>
       </item>
       <item row="3" column="1">
-       <widget class="QListView" name="ressourceList"/>
+       <widget class="QListView" name="ressourceList">
+        <property name="selectionMode">
+         <enum>QAbstractItemView::MultiSelection</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1">
+       <widget class="QPushButton" name="modifyListRessource">
+        <property name="text">
+         <string>Modify</string>
+        </property>
+        <property name="autoDefault">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QDateEdit" name="dateEdit">
+        <property name="dateTime">
+         <datetime>
+          <hour>8</hour>
+          <minute>0</minute>
+          <second>0</second>
+          <year>2018</year>
+          <month>3</month>
+          <day>23</day>
+         </datetime>
+        </property>
+        <property name="minimumDateTime">
+         <datetime>
+          <hour>8</hour>
+          <minute>0</minute>
+          <second>0</second>
+          <year>2018</year>
+          <month>3</month>
+          <day>23</day>
+         </datetime>
+        </property>
+        <property name="maximumDate">
+         <date>
+          <year>2020</year>
+          <month>12</month>
+          <day>31</day>
+         </date>
+        </property>
+        <property name="minimumDate">
+         <date>
+          <year>2018</year>
+          <month>3</month>
+          <day>23</day>
+         </date>
+        </property>
+        <property name="maximumTime">
+         <time>
+          <hour>18</hour>
+          <minute>0</minute>
+          <second>0</second>
+         </time>
+        </property>
+        <property name="minimumTime">
+         <time>
+          <hour>8</hour>
+          <minute>0</minute>
+          <second>0</second>
+         </time>
+        </property>
+        <property name="currentSection">
+         <enum>QDateTimeEdit::DaySection</enum>
+        </property>
+        <property name="calendarPopup">
+         <bool>true</bool>
+        </property>
+       </widget>
       </item>
      </layout>
     </widget>

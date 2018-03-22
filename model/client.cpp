@@ -230,3 +230,21 @@ void Client::modifyClientDB(QString lName, QString fName,QString a,  QString c, 
     query.exec();
     InitBDD::Close_DB(db);
 }
+
+QSqlQueryModel * Client::getRessourceByClientID(int id){
+    QSqlDatabase db = InitBDD::getDatabaseInstance();
+
+    if(db.isOpen()){
+        QSqlQueryModel *model = new QSqlQueryModel();
+        QSqlQuery query(db);
+        query.prepare("SELECT TRessource.Nom FROM TRdv INNER JOIN TRessource ON TRessource.Id = TRdv. IdRessource WHERE IdClient = ?");
+        query.bindValue(0, id);
+        query.exec();
+        model->setQuery(query);
+        InitBDD::Close_DB(db);
+        return model;
+    }else {
+        qDebug() << "DataBase is closed.";
+        return 0;
+    }
+}

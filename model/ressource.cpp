@@ -69,7 +69,7 @@ void Ressource::setType(const Type &value)
     type = value;
 }
 
-QSqlQueryModel * Ressource::getRessourcesListEmployee(){
+QSqlQueryModel * Ressource::getRessourcesAddClient(){
     QSqlDatabase db = InitBDD::getDatabaseInstance();
 
     if(db.isOpen()){
@@ -85,6 +85,8 @@ QSqlQueryModel * Ressource::getRessourcesListEmployee(){
         return 0;
     }
 }
+
+
 
 QStandardItemModel * Ressource::getRessourcesListView(){
     QSqlDatabase db = InitBDD::getDatabaseInstance();

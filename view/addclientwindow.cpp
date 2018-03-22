@@ -11,9 +11,7 @@ AddClientWindow::AddClientWindow(QWidget *parent, bool flag, int idC) :
 {
     ui->setupUi(this);
     this->setWindowIcon(QIcon("icon/unicorn.png"));
-    QSqlQueryModel * model = Ressource::getRessourcesListEmployee();
-    ui->ressourceList->setModel(model);
-    ui->ressourceList->show();
+    ui->modifyListRessource->setVisible(false);
 
     if(!flag){
         //fill the data
@@ -28,6 +26,15 @@ AddClientWindow::AddClientWindow(QWidget *parent, bool flag, int idC) :
         ui->durationSpinBox->setValue(c.getAppointmentDuration());
         ui->phoneInput->setText(QString::number(c.getPhoneNumber()));
         ui->prioritySpinBox->setValue(c.getPriority());
+        QSqlQueryModel * model =  Client::getRessourceByClientID(idC);
+        ui->ressourceList->setModel(model);
+        ui->ressourceList->show();
+        ui->modifyListRessource->setVisible(true);
+    }else {
+        ui->modifyListRessource->setVisible(false);
+        QSqlQueryModel * model = Ressource::getRessourcesAddClient();
+        ui->ressourceList->setModel(model);
+        ui->ressourceList->show();
     }
 }
 
@@ -84,4 +91,11 @@ bool AddClientWindow::formIsCompleted()
     }
 
     return true;
+}
+
+void AddClientWindow::on_modifyListRessource_clicked()
+{
+    QSqlQueryModel * model = Ressource::getRessourcesAddClient();
+    ui->ressourceList->setModel(model);
+    ui->ressourceList->show();
 }

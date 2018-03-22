@@ -47,6 +47,7 @@ private slots:
      * @brief on_ok_btn_clicked
      */
     void on_ok_btn_clicked();
+    void on_modifyListRessource_clicked();
 };
 
 #endif // ADDCLIENTWINDOW_H

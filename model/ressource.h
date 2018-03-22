@@ -102,7 +102,7 @@ public:
      */
     void setType(const Type &value);
 
-    static QSqlQueryModel *getRessourcesListEmployee();
+    static QSqlQueryModel *getRessourcesAddClient();
 
     /**
      * @brief getRessources
